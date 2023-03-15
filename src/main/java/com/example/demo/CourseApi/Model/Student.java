@@ -1,4 +1,4 @@
-package Model;
+package com.example.demo.CourseApi.Model;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

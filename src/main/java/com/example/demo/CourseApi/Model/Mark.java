@@ -1,4 +1,5 @@
-package Model;
+package com.example.demo.CourseApi.Model;
+
 
 
 import lombok.Data;
@@ -10,16 +11,20 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Data
+
+
 @Entity
-public class Course extends BaseEntity{
+public class Mark {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    String name;
+    Integer obtainedMarks;
+
+    String grade;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "id")
-    Student student;
+    @JoinColumn(name = "course_id", referencedColumnName = "id")
+    Course course;
 }

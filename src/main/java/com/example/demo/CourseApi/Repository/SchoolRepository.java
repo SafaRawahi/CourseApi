@@ -1,6 +1,6 @@
-package Repository;
+package com.example.demo.CourseApi.Repository;
 
-import Model.School;
+import com.example.demo.CourseApi.Model.School;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,3 +22,5 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value = "SELECT s from School s where s.isActive = true")
     List<School> getAllActiveSchools();
 }
+
+
