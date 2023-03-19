@@ -12,13 +12,13 @@ public class GeneralController {
 
 
 
-    @GetMapping(value = "test")
-    public String test(){
-        return "${spring.profiles.active}";
-    }
-
-    @GetMapping(value = "slackMessage")
-    public void message(@RequestParam String text){
-        slackClient.sendMessage(text);
-    }
+//    @GetMapping(value = "test")
+//    public String test(){
+//        return "${spring.profiles.active}";
+//    }
+//
+//    @GetMapping(value = "slackMessage")
+//    public void message(@RequestParam String text){
+//        slackClient.sendMessage(text);
+//    }
 }

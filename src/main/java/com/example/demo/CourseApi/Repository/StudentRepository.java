@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
+    @Query(value = "SELECT s from Student s  ")
+    List<Student> getAllStudent();
     @Query(value = "SELECT st from Student st " +
             "WHERE st.school.id = :id ")
     List<Student> getStudentsBySchoolId(@Param("id") Integer id);

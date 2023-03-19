@@ -33,8 +33,8 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "getByName")
-    public School getSchoolByName(@RequestParam String schoolName) {
-        School school = schoolService.getSchoolByName(schoolName);
+    public School getSchoolByName(@RequestParam String school_name) {
+        School school = schoolService.getSchoolByName(school_name);
         return school;
     }
 
@@ -44,12 +44,12 @@ public class SchoolController {
         return activeSchoolsList;
     }
 
-    @RequestMapping(value = "updateCreatedDateByUserInput")
-    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)
-            throws ParseException {
-        schoolService.setCreatedDateByUserInput(data.getDate(), data.getId());
-
-    }
+//    @RequestMapping(value = "updateCreatedDateByUserInput")
+//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)
+//            throws ParseException {
+//        schoolService.setCreatedDateByUserInput(data.getDate(), data.getId());
+//
+//    }
 
     @RequestMapping(value = "getSchoolByNumberOfStudent", method = RequestMethod.POST)
     public List<School> getSchoolByNumberOfStudent(@RequestParam Integer numberOfStudent) {

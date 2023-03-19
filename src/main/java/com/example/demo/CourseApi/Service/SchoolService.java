@@ -33,8 +33,8 @@ public class SchoolService {
         return school;
     }
 
-    public School getSchoolByName(String schoolName) {
-        School school = schoolRepository.getBySchoolName(schoolName);
+    public School getSchoolByName(String school_name) {
+        School school = schoolRepository.getBySchoolName(school_name);
         return school;
     }
 

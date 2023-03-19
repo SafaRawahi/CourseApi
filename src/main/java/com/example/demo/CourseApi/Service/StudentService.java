@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StusentService {
+public class StudentService {
 
     @Autowired
     StudentRepository studentRepository;
@@ -40,6 +40,6 @@ public class StusentService {
     }
 
     public List<Student> getAllStudents(){
-        return studentRepository.findAll();
+        return studentRepository.getAllStudent();
     }
 }
