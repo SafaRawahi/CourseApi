@@ -44,6 +44,12 @@ public class SchoolController {
         return activeSchoolsList;
     }
 
+    @RequestMapping(value = "getAllInActive")
+    public List<School> getAllInActive() {
+        List<School> InActiveSchoolsList = schoolService.getAllInActive();
+        return InActiveSchoolsList;
+    }
+
 //    @RequestMapping(value = "updateCreatedDateByUserInput")
 //    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)
 //            throws ParseException {
@@ -51,9 +57,9 @@ public class SchoolController {
 //
 //    }
 
-    @RequestMapping(value = "getSchoolByNumberOfStudent", method = RequestMethod.POST)
-    public List<School> getSchoolByNumberOfStudent(@RequestParam Integer numberOfStudent) {
-        List<School> schoolList=schoolService.getSchoolByNumberOfStudent(numberOfStudent);
-        return schoolList;
-    }
+//    @RequestMapping(value = "getSchoolByNumberOfStudent", method = RequestMethod.POST)
+//    public List<School> getSchoolByNumberOfStudent(@RequestParam Integer numberOfStudent) {
+//        List<School> schoolList=schoolService.getSchoolByNumberOfStudent(numberOfStudent);
+//        return schoolList;
+//    }
 }

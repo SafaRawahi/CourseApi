@@ -25,10 +25,10 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "getBySchoolName", method = RequestMethod.GET)
-    public List<Student> getStudentsBySchoolName(@RequestParam String schoolName) {
-        return studentService.getStudentsBySchoolName(schoolName);
-    }
+//    @RequestMapping(value = "getBySchoolName", method = RequestMethod.GET)
+//    public List<Student> getStudentsBySchoolName(@RequestParam String schoolName) {
+//        return studentService.getStudentsBySchoolName(schoolName);
+//    }
 
 
 }
