@@ -19,13 +19,6 @@ public class StudentService {
     @Autowired
     SchoolRepository schoolRepository;
 
-    public void addStudent() {
-        Student student = new Student();
-        student.setName("Mohammed Ali");
-        student.setRollNumber("1");
-        studentRepository.save(student);
-
-    }
 
 //    public void deleteStudentById(Integer id){
 //        Student studentToDelete = studentRepository.findById(id).get();
