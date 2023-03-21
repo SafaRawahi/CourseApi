@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface SchoolRepository extends JpaRepository<School, Integer> {
 
-    @Query(value = "SELECT s from School s")       //getAllSchools
+    @Query(value = "SELECT s from School s")                     //getAllSchools
     List<School> getAllSchools();
 
     @Query(value = "SELECT s from School s where s.id = :schoolId")          //getSchoolById
@@ -27,6 +27,12 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
 
     @Query(value = "SELECT s from School s where s.id = (SELECT Max(s.id) FROM School s)")    //getSchoolLatestRow
     List<School> getSchoolLatestRow();
+
+    @Query(value = "SELECT s from School s where s.updated_date = (SELECT MAX(s.updated_date) FROM School s)")     //getLatestUpdated
+    List<School> getSchoolLatestUpdatedData();
+
+
+
 }
 
 

@@ -29,11 +29,7 @@ public class StudentController {
         return studentService.getStudentsBySchoolName(schoolName);
     }
 
-     @RequestMapping (value = "getDistinctSchoolId", method = RequestMethod.GET )
-     public List<Integer> getDistinctSchoolIdsFromStudent() {
-         List<Integer> stdListBySchoolId=studentService.getDistinctSchoolIdsFromStudent();
-         return stdListBySchoolId;
-     }
+
 
 
 }

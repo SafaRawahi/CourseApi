@@ -36,9 +36,5 @@ public class StudentService {
 
 
 
-    public List<Integer> getDistinctSchoolIdsFromStudent() {
-        List<Integer> stdListBySchoolId=studentRepository.getDistinctSchoolIdsFromStudent();
-        return stdListBySchoolId;
 
-    }
     }

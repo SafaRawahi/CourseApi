@@ -18,13 +18,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> getStudentsBySchoolId(@Param("id") Integer id);
 
 
-   @Query(value = "SELECT DISTINCT s. school_id FROM student s")
-    List<Integer> getDistinctSchoolIdsFromStudent();
 
-
-
-    @Query(value = "SELECT COUNT(id) From student where school_id = ?1", nativeQuery = true)
-    Integer getCountOfStudentsBySchoolId(Integer schoolId);
 
 
 }
