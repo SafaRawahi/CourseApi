@@ -34,12 +34,14 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     List<School>  getSchoolCreatedAfterDate(@Param("created_date") Date created_date);
 
 
-    @Query(value = "select * from school where created_date like CONCAT (?1, '%') ", nativeQuery = true)
+    @Query(value = "select * from school where created_date like CONCAT (?1, '%') ", nativeQuery = true)      //getSchoolByCreatedDate
     List<School> getSchoolsByCreatedDate(String createdDate);
 
 
-//    @Query(value ="SELECT s from School s where s.createdDate= :createdDate")         //getSchoolByCreatedDate
-//    School getSchoolByCreatedDate(@Param("createdDate") Date createdDate);
+    @Query(value = "select * from school where updated_date like CONCAT (?1, '%') ", nativeQuery = true)    //getSchoolsByUpdatedDate
+    List<School> getSchoolsByUpdatedDate(String updatedDate);
+
+//
 //    @Query(value ="SELECT s from School s where s.updatedDate= :updatedDate")         //get School By updated Date
 //    School getSchoolByUpdatedDate(@Param("updatedDate") Date updatedDate);
 

@@ -70,19 +70,19 @@ public class SchoolController {
         return schoolList;
     }
 
-    @RequestMapping(value = "getSchoolsByCreatedDate", method = RequestMethod.GET)
+    @RequestMapping(value = "getSchoolsByCreatedDate", method = RequestMethod.GET)                      //getSchoolByCreatedDate
     public List<School> getSchoolsByCreatedDate(String createdDate) throws ParseException {
-        List<School> schools = schoolService.getSchoolsByCreatedDate(createdDate);
-        return schools;
+        List<School> school = schoolService.getSchoolsByCreatedDate(createdDate);
+        return school;
+    }
+
+    @RequestMapping(value = "getSchoolsByUpdatedDate", method = RequestMethod.GET)                  //getSchoolsByUpdatedDate
+    public List<School> getSchoolsByUpdatedDate(String updatedDate) throws ParseException {
+        List<School> school = schoolService.getSchoolsByUpdatedDate(updatedDate);
+        return school;
     }
 
 
-//    @RequestMapping(value = "getSchoolByCreatedDate",method = RequestMethod.GET)               //getSchoolByCreatedDate
-//    public School getSchoolByCreatedDate(@RequestParam Date createdDate) {
-//        School school = schoolService.getSchoolByCreatedDate(createdDate);
-//        return school;
-//    }
-//
 //    @RequestMapping(value = "getSchoolByUpdatedDate",method = RequestMethod.GET)               //get School By updated date
 //    public School getSchoolByUpdatedDate(@RequestParam Date updatedDate) {
 //        School school= schoolService.getSchoolByUpdatedDate(updatedDate);
