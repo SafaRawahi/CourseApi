@@ -24,11 +24,16 @@ public class StudentController {
         return students;
     }
 
-
     @RequestMapping(value = "getBySchoolName", method = RequestMethod.GET)
-    public List<Student> getStudentsBySchoolName(@RequestParam String schoolName) {
+    public List<Student> getStudentsBySchoolName(@RequestParam String schoolName) {     //get by school name
         return studentService.getStudentsBySchoolName(schoolName);
     }
+
+     @RequestMapping (value = "getDistinctSchoolId", method = RequestMethod.GET )
+     public List<Integer> getDistinctSchoolIdsFromStudent() {
+         List<Integer> stdListBySchoolId=studentService.getDistinctSchoolIdsFromStudent();
+         return stdListBySchoolId;
+     }
 
 
 }

@@ -9,23 +9,24 @@ import java.util.List;
 @Repository
 public interface SchoolRepository extends JpaRepository<School, Integer> {
 
-    @Query(value = "SELECT s from School s")
+    @Query(value = "SELECT s from School s")       //getAllSchools
     List<School> getAllSchools();
 
-    @Query(value = "SELECT s from School s where s.id = :schoolId")
+    @Query(value = "SELECT s from School s where s.id = :schoolId")          //getSchoolById
     School getSchoolById(@Param("schoolId") Integer id);
 
     @Query(value = "SELECT s from School s " +
-            "WHERE s.name = :school_name")
+            "WHERE s.name = :school_name")                                //getBySchoolName
     School getBySchoolName(@Param("school_name") String school_name);
 
-    @Query(value = "SELECT s from School s where s.isActive = true")
+    @Query(value = "SELECT s from School s where s.isActive = true")   //getAllActiveSchools
     List<School> getAllActiveSchools();
 
-    @Query(value = "SELECT s from School s where s.isActive = false")
+    @Query(value = "SELECT s from School s where s.isActive = false")    //getAllInActive
     List<School> getAllInActive();
 
-
+    @Query(value = "SELECT s from School s where s.id = (SELECT Max(s.id) FROM School s)")    //getSchoolLatestRow
+    List<School> getSchoolLatestRow();
 }
 
 

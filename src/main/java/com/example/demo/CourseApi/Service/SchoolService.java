@@ -39,12 +39,10 @@ public class SchoolService {
     }
 
     public List<School> getAllActiveSchools() {
-
         return schoolRepository.getAllActiveSchools();
     }
 
     public List<School> getAllInActive() {
-
         return schoolRepository.getAllInActive();
     }
 
@@ -56,23 +54,11 @@ public class SchoolService {
         school.setCreatedDate(javaDate);
         schoolRepository.save(school);
     }
+
+    public List<School> getSchoolLatestRow() {                   //getSchoolLatestRow
+        return schoolRepository.getSchoolLatestRow();
+
+    }
 }
 
-//    public List<School> getSchoolByNumberOfStudent(Integer numberOfStudent ) {
-//        List<Integer> typesOfSchoolIdsInStudent = studentRepository.getDistinctSchoolIdsFromStudent();
-//        //{1,2 }
-//
-//        List<Integer> schoolIdsThatUserWants = new ArrayList<>();
-//
-//        for (Integer idOfSchool : typesOfSchoolIdsInStudent) {
-//            Integer count = studentRepository.getCountOfStudentsBySchoolId(idOfSchool);
-//            if (numberOfStudent == count) {
-//                schoolIdsThatUserWants.add(idOfSchool);
-//            }
-//        }
-//
-//        List<School> schoolThatUserWasLookingFor = schoolRepository.findAllById(schoolIdsThatUserWants);
-//        return schoolThatUserWasLookingFor;
-//    }
-//
-//}
+

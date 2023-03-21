@@ -20,10 +20,7 @@ public class StudentService {
     SchoolRepository schoolRepository;
 
 
-//    public void deleteStudentById(Integer id){
-//        Student studentToDelete = studentRepository.findById(id).get();
-//        studentRepository.delete(studentToDelete);
-//    }
+
 
     public List<Student> getStudentsBySchoolName(String schoolName){
         School school = schoolRepository.getBySchoolName(schoolName);
@@ -33,6 +30,15 @@ public class StudentService {
     }
 
     public List<Student> getAllStudents(){
+
         return studentRepository.getAllStudent();
     }
-}
+
+
+
+    public List<Integer> getDistinctSchoolIdsFromStudent() {
+        List<Integer> stdListBySchoolId=studentRepository.getDistinctSchoolIdsFromStudent();
+        return stdListBySchoolId;
+
+    }
+    }
