@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.Date;
 import java.util.List;
 @Repository
 public interface SchoolRepository extends JpaRepository<School, Integer> {
@@ -28,8 +30,11 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value = "SELECT s from School s where s.id = (SELECT Max(s.id) FROM School s)")    //getSchoolLatestRow
     List<School> getSchoolLatestRow();
 
-    @Query(value = "SELECT s from School s where s.updated_date = (SELECT MAX(s.updated_date) FROM School s)")     //getLatestUpdated
-    List<School> getSchoolLatestUpdatedData();
+    @Query(value="SELECT s From School s Where s.createdDate>= :created_date")                //getSchoolCreatedAfterDate
+    List<School>  getSchoolCreatedAfterDate(@Param("created_date") Date created_date);
+
+//    @Query(value = "SELECT s from School s where s.updated_date = (SELECT MAX(s.updated_date) FROM School s)")     //getLatestUpdated
+//    List<School> getSchoolLatestUpdatedData();
 
 
 
