@@ -68,19 +68,22 @@ public class SchoolService {
 
     }
 
-
-
-    public School getSchoolByCreatedDate(Date createdDate) {           //getSchoolByCreatedDate
-
-        School school = schoolRepository.getSchoolByCreatedDate(createdDate);
-        return school;
+    public List<School> getSchoolsByCreatedDate(String createdDate) {                     //getSchoolsByCreatedDate
+        List<School> schools = schoolRepository.getSchoolsByCreatedDate(createdDate);
+        return schools;
     }
 
 
-    public School getSchoolByUpdatedDate(Date updatedDate) {                      //get School By updated Date
-        School school = schoolRepository.getSchoolByUpdatedDate(updatedDate);
-        return school;
-    }
+
+//    public School getSchoolByCreatedDate(Date createdDate) {           //getSchoolByCreatedDate
+//        School school = schoolRepository.getSchoolByCreatedDate(createdDate);
+//        return school;
+//    }
+//
+//    public School getSchoolByUpdatedDate(Date updatedDate) {                      //get School By updated Date
+//        School school = schoolRepository.getSchoolByUpdatedDate(updatedDate);
+//        return school;
+//    }
 
 
 //    public List<School> getLatestUpdatedSchool() {                    //getLatestUpdated
