@@ -33,13 +33,13 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value="SELECT s From School s Where s.createdDate>= :created_date")                //getSchoolCreatedAfterDate
     List<School>  getSchoolCreatedAfterDate(@Param("created_date") Date created_date);
 
-//    @Query(value ="SELECT s from School s where s.updatedDate= :updatedDate")         //getSchoolByUpdatedDate
-//    School getSchoolByUpdatedDate(@Param("updatedDate") Date updatedDate);
-
-
     @Query(value ="SELECT s from School s where s.createdDate= :createdDate")         //getSchoolByCreatedDate
     School getSchoolByCreatedDate(@Param("createdDate") Date createdDate);
 
+
+
+    @Query(value ="SELECT s from School s where s.updatedDate= :updatedDate")         //get School By updated Date
+    School getSchoolByUpdatedDate(@Param("updatedDate") Date updatedDate);
 
 
 

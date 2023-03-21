@@ -68,15 +68,17 @@ public class SchoolService {
 
     }
 
-//    public School getSchoolByUpdatedDate(Date updatedDate) {
-//        School school = schoolRepository.getSchoolByUpdatedDate(updatedDate);
-//        return school;
-//    }
 
-    public School getSchoolByCreatedDate(String createdDate) throws ParseException{
-        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
-        Date date = format.parse(createdDate);//get School By Created Date
-        School school = schoolRepository.getSchoolByCreatedDate(date );
+
+    public School getSchoolByCreatedDate(Date createdDate) {           //getSchoolByCreatedDate
+
+        School school = schoolRepository.getSchoolByCreatedDate(createdDate);
+        return school;
+    }
+
+
+    public School getSchoolByUpdatedDate(Date updatedDate) {                      //get School By updated Date
+        School school = schoolRepository.getSchoolByUpdatedDate(updatedDate);
         return school;
     }
 
