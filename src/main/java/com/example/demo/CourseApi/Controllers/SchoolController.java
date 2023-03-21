@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -67,6 +68,20 @@ public class SchoolController {
         List<School> schoolList = new ArrayList<>();
         schoolList = schoolService.getSchoolCreatedAfterDate(created_date);
         return schoolList;
-
     }
+//    @RequestMapping(value = "getSchoolByUpdatedDate",method = RequestMethod.GET)               //get School By updated date
+//    public School getSchoolByUpdatedDate(@RequestParam Date updatedDate) {
+//        School school = schoolService.getSchoolByUpdatedDate(updatedDate);
+//return school;
+//    }
+
+
+    @RequestMapping(value = "getSchoolByCreatedDate",method = RequestMethod.GET)               //get School By Created Date
+    public School getSchoolByCreatedDate(@RequestParam String createdDate) throws ParseException{
+        School school = schoolService.getSchoolByCreatedDate(createdDate);
+        return school;
+    }
+
+
+
 }

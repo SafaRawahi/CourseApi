@@ -60,12 +60,24 @@ public class SchoolService {
 
     }
 
-    public List<School> getSchoolCreatedAfterDate(String created_date) throws ParseException{
+    public List<School> getSchoolCreatedAfterDate(String created_date) throws ParseException{      //getSchoolCreatedAfterDate
         DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
         Date date = format.parse(created_date);
         List<School> schoolList = schoolRepository.getSchoolCreatedAfterDate(date);
         return schoolList;
 
+    }
+
+//    public School getSchoolByUpdatedDate(Date updatedDate) {
+//        School school = schoolRepository.getSchoolByUpdatedDate(updatedDate);
+//        return school;
+//    }
+
+    public School getSchoolByCreatedDate(String createdDate) throws ParseException{
+        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+        Date date = format.parse(createdDate);//get School By Created Date
+        School school = schoolRepository.getSchoolByCreatedDate(date );
+        return school;
     }
 
 
