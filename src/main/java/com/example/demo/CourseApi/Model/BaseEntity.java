@@ -13,13 +13,11 @@ import java.util.Date;
 @Setter
 @Getter
 public class BaseEntity {
-
-
     @CreatedDate
     Date createdDate;
-
     @UpdateTimestamp
     Date updatedDate;
-
     Boolean isActive;
+
+
 }

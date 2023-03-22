@@ -17,6 +17,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
             "WHERE st.school.id = :id ")
     List<Student> getStudentsBySchoolId(@Param("id") Integer id);
 
+    @Query(value="SELECT s from Student s Where s.id = :studentId")                      // get Student by id
+    Student getStudentById(@Param("studentId") Integer id);
 
 
 

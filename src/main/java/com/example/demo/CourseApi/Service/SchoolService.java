@@ -78,21 +78,16 @@ public class SchoolService {
         return school;
     }
 
-//    public School getSchoolByCreatedDate(Date createdDate) {           //getSchoolByCreatedDate
-//        School school = schoolRepository.getSchoolByCreatedDate(createdDate);
-//        return school;
-//    }
-//
-//    public School getSchoolByUpdatedDate(Date updatedDate) {                      //get School By updated Date
-//        School school = schoolRepository.getSchoolByUpdatedDate(updatedDate);
-//        return school;
-//    }
-
 
 //    public List<School> getLatestUpdatedSchool() {                    //getLatestUpdated
 //        return schoolRepository.getSchoolLatestUpdatedData();
 //    }
 
+//    public void deleteSchoolById(Integer id) {                     // Delete by id
+//        School school = schoolRepository.getSchoolById(id);
+//        school.setActive(false);
+//        schoolRepository.save(school);
+//    }
 
 
 }

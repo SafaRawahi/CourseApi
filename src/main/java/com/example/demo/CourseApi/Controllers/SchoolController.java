@@ -82,12 +82,11 @@ public class SchoolController {
         return school;
     }
 
-
-//    @RequestMapping(value = "getSchoolByUpdatedDate",method = RequestMethod.GET)               //get School By updated date
-//    public School getSchoolByUpdatedDate(@RequestParam Date updatedDate) {
-//        School school= schoolService.getSchoolByUpdatedDate(updatedDate);
-//        return school;
+//    @RequestMapping(value = "deleteSchoolById",method = RequestMethod.GET)             //delete by School id
+//    public void deleteSchoolById(@RequestParam Integer id){
+//        schoolService.deleteSchoolById(id);
 //    }
+
 
 
 

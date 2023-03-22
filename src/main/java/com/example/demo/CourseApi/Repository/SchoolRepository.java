@@ -41,10 +41,6 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value = "select * from school where updated_date like CONCAT (?1, '%') ", nativeQuery = true)    //getSchoolsByUpdatedDate
     List<School> getSchoolsByUpdatedDate(String updatedDate);
 
-//
-//    @Query(value ="SELECT s from School s where s.updatedDate= :updatedDate")         //get School By updated Date
-//    School getSchoolByUpdatedDate(@Param("updatedDate") Date updatedDate);
-
 
 
 //    @Query(value = "SELECT s from School s where s.updated_date = (SELECT MAX(s.updated_date) FROM School s)")     //getLatestUpdated
