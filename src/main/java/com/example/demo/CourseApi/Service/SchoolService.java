@@ -23,12 +23,12 @@ public class SchoolService {
     @Autowired
     StudentRepository studentRepository;
 
-    public List<School> getAllSchools() {
+    public List<School> getAllSchools() {                     //getAllSchools
 
         return schoolRepository.getAllSchools();
     }
 
-    public School getSchoolById(Integer id) {
+    public School getSchoolById(Integer id) {                         //getSchoolById
         School school = schoolRepository.getSchoolById(id);
         return school;
     }

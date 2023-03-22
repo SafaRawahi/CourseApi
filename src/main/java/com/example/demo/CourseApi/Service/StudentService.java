@@ -31,8 +31,9 @@ public class StudentService {
         return studentRepository.getAllStudent();
     }
 
-    public Student getStudentById(Integer studentId){                         // getStudentById
-        Student student=studentRepository.getStudentById(studentId);
+
+    public Student getStudentById(Integer id) {                        //getStudentById
+        Student student = studentRepository.getStudentById(id);
         return student;
     }
 

@@ -14,7 +14,6 @@ import java.util.List;
 @RequestMapping(value = "student")
 public class StudentController {
 
-
     @Autowired
     StudentService studentService;
 
@@ -29,11 +28,13 @@ public class StudentController {
         return studentService.getStudentsBySchoolName(schoolName);
     }
 
-    @RequestMapping(value="getById", method =RequestMethod.GET)                   // getStudentById
-    public Student getStudentById(@RequestParam Integer studentId){
-        Student student= studentService.getStudentById(studentId);
+    @RequestMapping(value = "getById", method = RequestMethod.GET)                    //getStudentById
+    public Student getStudentById(@RequestParam Integer studentId) {
+        Student student = studentService.getStudentById(studentId);
         return student;
+
     }
+
 
 
 
