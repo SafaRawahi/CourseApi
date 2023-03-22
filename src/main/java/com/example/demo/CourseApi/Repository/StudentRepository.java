@@ -23,4 +23,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query(value="SELECT s from Student s Where s.isActive=True")                     //query to get all Student is active
     List<Student> getAllStudentsIsActive();
+
+    @Query(value = "select st from Student st where st.isActive = 0")
+    List<Student> getAllInActiveStudents();
+
 }
