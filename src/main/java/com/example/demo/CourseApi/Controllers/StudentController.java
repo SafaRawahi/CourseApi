@@ -34,7 +34,12 @@ public class StudentController {
         return student;
 
     }
+    @RequestMapping(value = "getAllStudentsIsActive",method = RequestMethod.GET)              //getAllStudentsIsActive
+    public List<Student> getAllStudentsIsActive(){
+        List<Student> studentList= studentService.getAllStudentsIsActive();
+        return studentList;
 
+    }
 
 
 

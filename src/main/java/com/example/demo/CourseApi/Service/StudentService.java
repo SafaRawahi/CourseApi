@@ -37,5 +37,9 @@ public class StudentService {
         return student;
     }
 
+    public List<Student> getAllStudentsIsActive() {                          //get all Student is Active
+        return studentRepository.getAllStudentsIsActive();
+
+    }
 
     }
