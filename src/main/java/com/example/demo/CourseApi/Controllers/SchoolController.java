@@ -87,7 +87,7 @@ public class SchoolController {
 //        schoolService.deleteSchoolById(id);
 //    }
 
-@RequestMapping(value = "getLatestUpdatedDate", method = RequestMethod.GET)
+@RequestMapping(value = "getLatestUpdatedDate", method = RequestMethod.GET)              // getLatestUpdatedDate
 public School getLatestUpdatedDate() {
     School school = schoolService.getLatestUpdatedDate();
     return school;

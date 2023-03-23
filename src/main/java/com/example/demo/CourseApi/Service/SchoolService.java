@@ -90,7 +90,7 @@ public class SchoolService {
 //        school.setActive(false);
 //        schoolRepository.save(school);
 //    }
-public School getLatestUpdatedDate() {
+public School getLatestUpdatedDate() {                        //getLatestUpdatedDate
     School school = schoolRepository.getLatestUpdatedDate();
     return school;
 }
