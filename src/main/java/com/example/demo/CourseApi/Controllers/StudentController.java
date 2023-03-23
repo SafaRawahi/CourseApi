@@ -35,18 +35,25 @@ public class StudentController {
         return student;
 
     }
-    @RequestMapping(value = "getAllStudentsIsActive",method = RequestMethod.GET)              //getAllStudentsIsActive
-    public List<Student> getAllStudentsIsActive(){
-        List<Student> studentList= studentService.getAllStudentsIsActive();
+
+    @RequestMapping(value = "getAllStudentsIsActive", method = RequestMethod.GET)              //getAllStudentsIsActive
+    public List<Student> getAllStudentsIsActive() {
+        List<Student> studentList = studentService.getAllStudentsIsActive();
         return studentList;
 
     }
-    @RequestMapping(value = "getAllInActiveStudents", method = RequestMethod.GET)
+
+    @RequestMapping(value = "getAllInActiveStudents", method = RequestMethod.GET)     //getAllInActiveStudents
     public List<Student> getAllInActiveStudents() {
         List<Student> AllInActiveStudents = new ArrayList<>();
         AllInActiveStudents = studentService.getAllInActiveStudents();
         return AllInActiveStudents;
     }
 
+    @RequestMapping(value = "getLatestRowInStudent", method = RequestMethod.GET)        //getLatestRowInStudent
+    public List<Student> getLatestRowInStudent() {
+        List<Student> studentList = studentService.getLatestRowInStudent();
 
+        return studentList;
+    }
 }

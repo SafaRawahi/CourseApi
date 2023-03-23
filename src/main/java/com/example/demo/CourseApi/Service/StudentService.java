@@ -42,10 +42,13 @@ public class StudentService {
 
     }
     public List<Student> getAllInActiveStudents() {
-        List<Student> allInActiveStudents = studentRepository.getAllInActiveStudents();
+        List<Student> allInActiveStudents = studentRepository.getAllInActiveStudents();     //getAllInActiveStudents
         return allInActiveStudents;
     }
 
+    public List<Student> getLatestRowInStudent() {                            //getLatestRowInStudent
+        return studentRepository.getLatestRowInStudent();
 
+    }
 
     }
