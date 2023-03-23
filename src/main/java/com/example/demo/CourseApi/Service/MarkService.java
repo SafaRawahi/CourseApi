@@ -17,7 +17,15 @@ public class MarkService {
     CourseService courseService;
 
 
-    public List<Mark> getAllMarks() {
+    public List<Mark> getAllMarks() {                  //getAllMarks
         return markRepository.getAllMarks();
     }
+
+    public Mark getMarkById(Integer id) {              //getMarkById
+        Mark mark = markRepository.getMarkById(id);
+        return mark;
+    }
+
+
+
 }
