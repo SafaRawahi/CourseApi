@@ -95,4 +95,10 @@ public School getLatestUpdatedDate() {
         schoolService.deleteAllSchool();
     }
 
+    @RequestMapping(value = "deleteAllSchoolsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllSchoolsCreatedAfterDate
+    public void deleteAllSchoolsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{
+        schoolService.deleteAllSchoolsCreatedAfterDate(createdDate);
+    }
+
+
 }

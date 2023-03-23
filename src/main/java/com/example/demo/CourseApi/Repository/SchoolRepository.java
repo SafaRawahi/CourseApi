@@ -50,9 +50,11 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "Update School s Set s.isActive =false")
+    @Query(value = "Update School s Set s.isActive =false")                  //deleteAllSchool
     void deleteAllSchoolsByIsActiveFalse();
 
+    @Query(value = "SELECT s from School s where s.createdDate> :createdDate")                      //deleteAllSchoolsCreatedAfterDate
+    List<School> deleteAllSchoolsCreatedAfterDate(@Param("createdDate") Date createdDate);
 }
 
 
