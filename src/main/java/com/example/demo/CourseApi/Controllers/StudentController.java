@@ -88,5 +88,10 @@ public class StudentController {
         Student student= studentService.getStudentByRollNumber(roll_Number);
         return student;
     }
+    @RequestMapping(value = "getLatestUpdatedDate", method = RequestMethod.GET)              // getLatestUpdatedDate
+    public Student getLatestUpdatedDate() {
+        Student student = studentService.getLatestUpdatedDate();
+        return student;
+    }
 
 }

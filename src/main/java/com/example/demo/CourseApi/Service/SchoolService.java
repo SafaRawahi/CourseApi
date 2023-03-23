@@ -88,22 +88,31 @@ public class SchoolService {
 
     }
 
-    public void deleteSchoolById(Integer schoolId) {                   // deleteSchoolById
-        School school = schoolRepository.getSchoolById(schoolId);
-        school.setIsActive(false);
-        schoolRepository.save(school);
-    }
-    public void deleteAllSchool() {                                //deleteAllSchool
-        schoolRepository.deleteAllSchoolsByIsActiveFalse();
-    }
-
-    public void deleteAllSchoolsCreatedAfterDate(String createdDate)throws ParseException{
-        DateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
-        Date date = formatter.parse(createdDate);
-        List<School> schoolList =schoolRepository.deleteAllSchoolsCreatedAfterDate(date);
-        schoolList.stream().forEach(x -> x.setActive(false));
-        schoolRepository.saveAll(schoolList);
-    }
+//    public void deleteSchoolById(Integer schoolId) {                   // deleteSchoolById
+//        School school = schoolRepository.getSchoolById(schoolId);
+//        school.setIsActive(false);
+//        schoolRepository.save(school);
+//
+//    }
+//
+//
+//    public void deleteAllSchool() {                                //deleteAllSchool
+//        schoolRepository.deleteAllSchoolsByIsActiveFalse();
+//    }
+//
+//    public void deleteAllSchoolsCreatedAfterDate(String createdDate)throws ParseException{          //deleteAllSchoolsCreatedAfterDate
+//        DateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
+//        Date date = formatter.parse(createdDate);
+//        List<School> schoolList =schoolRepository.deleteAllSchoolsCreatedAfterDate(date);
+//        schoolList.stream().forEach(x -> x.setActive(false));
+//        schoolRepository.saveAll(schoolList);
+//    }
+//
+//    public void deleteSchoolBySchoolName(String schoolName) {                    //deleteSchoolBySchoolName
+//        School school1 = schoolRepository.getBySchoolName(schoolName);
+//        school1.setActive(true);
+//        schoolRepository.save(school1);
+//    }
 
 }
 

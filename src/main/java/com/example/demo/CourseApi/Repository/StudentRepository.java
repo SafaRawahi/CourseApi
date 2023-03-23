@@ -38,8 +38,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value="SELECT s from Student s Where s.name = :student_Name")          //getStudentByStudentName
     Student getStudentByStudentName(@Param("student_Name") String student_Name);
 
-//    @Query(value ="SELECT s from Student s where s.createdDate= :createdDate")         //getStudentByCreatedDate
-//    Student getStudentByCreatedDate(@Param("createdDate") Date createdDate);
+
 
     @Query(value = "select * from Student where created_date like CONCAT (?1, '%') ", nativeQuery = true)      //getStudentByCreatedDate
     List<Student> getStudentByCreatedDate(String createdDate);
@@ -48,6 +47,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query(value="SELECT s from Student s Where s.rollNumber = :roll_Number")          //getStudentByPhoneNumber
     Student getStudentByRollNumber(@Param("roll_Number") String roll_Number);
-
+    @Query(value = " select s from Student s where s.updatedDate = (select Max(s.updatedDate) from Student s)")      //getLatestUpdatedDate
+    Student getLatestUpdatedDate();
 
 }

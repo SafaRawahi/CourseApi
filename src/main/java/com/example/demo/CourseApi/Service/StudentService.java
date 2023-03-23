@@ -77,5 +77,11 @@ public class StudentService {
         Student student=studentRepository.getStudentByRollNumber(roll_Number);
         return student;
     }
+    public Student getLatestUpdatedDate() {                            //getLatestUpdatedDate
+        Student student = studentRepository.getLatestUpdatedDate();
+        return student;
 
     }
+
+
+}
