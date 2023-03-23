@@ -73,6 +73,9 @@ public class StudentService {
         List<Student> student = studentRepository.getStudentByUpdatedDate(updatedDate);
         return student;
     }
-
+    public Student getStudentByRollNumber(String roll_Number){                        //getStudentByPhoneNumber
+        Student student=studentRepository.getStudentByRollNumber(roll_Number);
+        return student;
+    }
 
     }

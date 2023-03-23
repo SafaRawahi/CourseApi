@@ -82,4 +82,11 @@ public class StudentController {
         List<Student> student = studentService.getStudentByUpdatedDate(updatedDate);
         return student;
     }
+
+    @RequestMapping(value = "getStudentByRollNumber",method =RequestMethod.GET )                //getStudentByRollNumber
+    public Student getStudentByRollNumber(@RequestParam String roll_Number) {
+        Student student= studentService.getStudentByRollNumber(roll_Number);
+        return student;
+    }
+
 }

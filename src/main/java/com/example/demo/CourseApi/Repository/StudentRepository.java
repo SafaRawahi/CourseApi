@@ -46,4 +46,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value = "select * from Student where updated_date like CONCAT (?1, '%') ", nativeQuery = true)    //getStudentByUpdatedDate
     List<Student>  getStudentByUpdatedDate(String updatedDate);
 
+    @Query(value="SELECT s from Student s Where s.rollNumber = :roll_Number")          //getStudentByPhoneNumber
+    Student getStudentByRollNumber(@Param("roll_Number") String roll_Number);
+
+
 }
