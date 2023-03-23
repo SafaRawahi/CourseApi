@@ -76,4 +76,10 @@ public class StudentController {
         List<Student> student = studentService.getStudentByCreatedDate(createdDate);
         return student;
     }
+
+    @RequestMapping(value = "getStudentsByUpdatedDate", method = RequestMethod.GET)                  //getStudenByUpdatedDate
+    public List<Student> getStudenByUpdatedDate(String updatedDate) throws ParseException {
+        List<Student> student = studentService.getStudentByUpdatedDate(updatedDate);
+        return student;
+    }
 }
