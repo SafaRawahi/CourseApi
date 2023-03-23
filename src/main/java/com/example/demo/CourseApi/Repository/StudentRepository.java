@@ -34,5 +34,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value="SELECT s From Student s Where s.createdDate>= :createdDate")                //getStudentCreatedAfterDate
     List<Student>  getStudentCreatedAfterDate(@Param("createdDate") Date createdDate);
 
-
+    @Query(value="SELECT s from Student s Where s.name = :student_Name")          //getStudentByStudentName
+    Student getStudentByStudentName(@Param("student_Name") String student_Name);
 }

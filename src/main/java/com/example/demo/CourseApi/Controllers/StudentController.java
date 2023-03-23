@@ -63,4 +63,10 @@ public class StudentController {
         studentList=studentService.getStudentCreatedAfterDate(createdDate);
         return studentList;
     }
+    @RequestMapping(value = "getByStudentName",method =RequestMethod.GET )                //getStudentByStudentName
+    public Student getStudentByStudentName(@RequestParam String student_Name) {
+        Student student= studentService.getStudentByStudentName(student_Name);
+        return student;
+    }
+
 }

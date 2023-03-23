@@ -60,6 +60,10 @@ public class StudentService {
         List<Student> studentList = studentRepository.getStudentCreatedAfterDate(date);
         return studentList;
     }
+    public Student getStudentByStudentName(String student_Name){                        //getStudentByStudentName
+        Student student=studentRepository.getStudentByStudentName(student_Name);
+        return student;
+    }
 
 
     }
