@@ -90,4 +90,9 @@ public School getLatestUpdatedDate() {
         schoolService.deleteSchoolById(schoolId);
     }
 
+    @RequestMapping(value = "deleteAll", method = RequestMethod.POST)                     //deleteAllSchool
+    public void deleteAllSchools() {
+        schoolService.deleteAllSchool();
+    }
+
 }

@@ -93,7 +93,9 @@ public class SchoolService {
         school.setIsActive(false);
         schoolRepository.save(school);
     }
-
+    public void deleteAllSchool() {                                //deleteAllSchool
+        schoolRepository.deleteAllSchoolsByIsActiveFalse();
+    }
 
 }
 
