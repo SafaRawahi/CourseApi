@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
@@ -30,6 +31,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value ="SELECT s From Student s Where s.id=(SELECT MAX(s.id) From Student s)")             //getLatestRowInStudent
     List<Student> getLatestRowInStudent();
 
+    @Query(value="SELECT s From Student s Where s.createdDate>= :createdDate")                //getStudentCreatedAfterDate
+    List<Student>  getStudentCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 
 }

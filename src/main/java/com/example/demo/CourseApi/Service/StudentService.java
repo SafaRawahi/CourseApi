@@ -8,6 +8,10 @@ import com.example.demo.CourseApi.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -50,5 +54,12 @@ public class StudentService {
         return studentRepository.getLatestRowInStudent();
 
     }
+    public List<Student> getStudentCreatedAfterDate(String StringCreatedDate) throws ParseException {                //getStudentCreatedAfterDate
+        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+        Date date = format.parse(StringCreatedDate);
+        List<Student> studentList = studentRepository.getStudentCreatedAfterDate(date);
+        return studentList;
+    }
+
 
     }
