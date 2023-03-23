@@ -6,6 +6,7 @@ import com.example.demo.CourseApi.Repository.SchoolRepository;
 import com.example.demo.CourseApi.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -81,25 +82,19 @@ public class SchoolService {
     }
 
 
-//    public List<School> getLatestUpdatedSchool() {                    //getLatestUpdated
-//        return schoolRepository.getSchoolLatestUpdatedData();
-//    }
+    public School getLatestUpdatedDate() {                            //getLatestUpdatedDate
+        School school = schoolRepository.getLatestUpdatedDate();
+        return school;
 
-//    public void deleteSchoolById(Integer id) {                     // Delete by id
-//        School school = schoolRepository.getSchoolById(id);
-//        school.setActive(false);
-//        schoolRepository.save(school);
-//    }
-public School getLatestUpdatedDate() {                            //getLatestUpdatedDate
-    School school = schoolRepository.getLatestUpdatedDate();
-    return school;
+    }
 
-}
-    public void deleteSchoolById(Integer schoolId) {                //deleteSchoolById
+    public void deleteSchoolById(Integer schoolId) {                   // deleteSchoolById
         School school = schoolRepository.getSchoolById(schoolId);
         school.setIsActive(false);
         schoolRepository.save(school);
     }
+
+
 }
 
 

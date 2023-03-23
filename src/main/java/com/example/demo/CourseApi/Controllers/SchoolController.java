@@ -57,11 +57,6 @@ public class SchoolController {
         return schoolLatestRowList;
     }
 
-//    @RequestMapping("getLatestUpdated")                                         //getLatestUpdated
-//    public List<School> getLatestUpdatedSchool() {
-//        List<School>latestSchool = schoolService.getLatestUpdatedSchool();
-//       return latestSchool;
-//    }
 
     @RequestMapping(value = "getSchoolCreatedAfterDate", method = RequestMethod.GET)
     public List<School> getSchoolCreatedAfterDate(@RequestParam String created_date) throws ParseException {     //getSchoolCreatedAfterDate
@@ -89,10 +84,10 @@ public School getLatestUpdatedDate() {
     School school = schoolService.getLatestUpdatedDate();
     return school;
 }
-    @RequestMapping(value = "deleteSchoolById", method = RequestMethod.POST)         //deleteSchoolById
+
+    @RequestMapping(value = "deleteSchoolById", method = RequestMethod.POST)           //deleteSchoolById
     public void deleteSchoolById(@RequestParam Integer schoolId) {
         schoolService.deleteSchoolById(schoolId);
     }
-
 
 }
