@@ -82,17 +82,17 @@ public class SchoolController {
         return school;
     }
 
-//    @RequestMapping(value = "deleteSchoolById",method = RequestMethod.GET)             //delete by School id
-//    public void deleteSchoolById(@RequestParam Integer id){
-//        schoolService.deleteSchoolById(id);
-//    }
+
 
 @RequestMapping(value = "getLatestUpdatedDate", method = RequestMethod.GET)              // getLatestUpdatedDate
 public School getLatestUpdatedDate() {
     School school = schoolService.getLatestUpdatedDate();
     return school;
 }
-
+    @RequestMapping(value = "deleteSchoolById", method = RequestMethod.POST)         //deleteSchoolById
+    public void deleteSchoolById(@RequestParam Integer schoolId) {
+        schoolService.deleteSchoolById(schoolId);
+    }
 
 
 }

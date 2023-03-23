@@ -90,11 +90,16 @@ public class SchoolService {
 //        school.setActive(false);
 //        schoolRepository.save(school);
 //    }
-public School getLatestUpdatedDate() {                        //getLatestUpdatedDate
+public School getLatestUpdatedDate() {                            //getLatestUpdatedDate
     School school = schoolRepository.getLatestUpdatedDate();
     return school;
-}
 
+}
+    public void deleteSchoolById(Integer schoolId) {                //deleteSchoolById
+        School school = schoolRepository.getSchoolById(schoolId);
+        school.setIsActive(false);
+        schoolRepository.save(school);
+    }
 }
 
 
