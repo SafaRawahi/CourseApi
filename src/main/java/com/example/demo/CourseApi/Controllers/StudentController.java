@@ -1,5 +1,6 @@
 package com.example.demo.CourseApi.Controllers;
 
+import com.example.demo.CourseApi.Model.School;
 import com.example.demo.CourseApi.Model.Student;
 import com.example.demo.CourseApi.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,4 +70,10 @@ public class StudentController {
         return student;
     }
 
+
+    @RequestMapping(value = "getStudentByCreatedDate", method = RequestMethod.GET)                      //getStudentByCreatedDate
+    public List<Student> getStudentByCreatedDate(String createdDate) throws ParseException {
+        List<Student> student = studentService.getStudentByCreatedDate(createdDate);
+        return student;
+    }
 }

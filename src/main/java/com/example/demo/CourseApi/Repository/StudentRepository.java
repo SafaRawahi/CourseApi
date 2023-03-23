@@ -1,5 +1,6 @@
 package com.example.demo.CourseApi.Repository;
 
+import com.example.demo.CourseApi.Model.School;
 import com.example.demo.CourseApi.Model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -36,4 +37,12 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query(value="SELECT s from Student s Where s.name = :student_Name")          //getStudentByStudentName
     Student getStudentByStudentName(@Param("student_Name") String student_Name);
+
+//    @Query(value ="SELECT s from Student s where s.createdDate= :createdDate")         //getStudentByCreatedDate
+//    Student getStudentByCreatedDate(@Param("createdDate") Date createdDate);
+
+    @Query(value = "select * from Student where created_date like CONCAT (?1, '%') ", nativeQuery = true)      //getStudentByCreatedDate
+    List<Student> getStudentByCreatedDate(String createdDate);
+
+
 }

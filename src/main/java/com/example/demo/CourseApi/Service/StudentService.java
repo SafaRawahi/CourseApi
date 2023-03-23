@@ -65,5 +65,8 @@ public class StudentService {
         return student;
     }
 
-
+    public List<Student> getStudentByCreatedDate(String createdDate) {                     //getStudentByCreatedDate
+        List<Student> student = studentRepository.getStudentByCreatedDate(createdDate);
+        return student;
+    }
     }

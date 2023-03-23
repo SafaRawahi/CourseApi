@@ -38,11 +38,13 @@ public class SchoolService {
         return school;
     }
 
-    public List<School> getAllActiveSchools() {
+    public List<School> getAllActiveSchools() {                          //getAllActiveSchools
+
         return schoolRepository.getAllActiveSchools();
     }
 
-    public List<School> getAllInActive() {
+    public List<School> getAllInActive() {                        //getAllInActive
+
         return schoolRepository.getAllInActive();
     }
 
