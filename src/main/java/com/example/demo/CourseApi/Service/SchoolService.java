@@ -90,7 +90,10 @@ public class SchoolService {
 //        school.setActive(false);
 //        schoolRepository.save(school);
 //    }
-
+public School getLatestUpdatedDate() {
+    School school = schoolRepository.getLatestUpdatedDate();
+    return school;
+}
 
 }
 
