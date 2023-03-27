@@ -125,6 +125,15 @@ public class SchoolService {
         schools.stream().forEach(x -> x.setIsActive(false));
         schoolRepository.saveAll(schools);
     }
+
+
+    public void createSchool(String schoolName) {                          //createSchool
+        School school = new School();
+        school.setName(schoolName);
+        school.setCreatedDate(new Date());
+        school.setIsActive(Boolean.TRUE);
+        schoolRepository.save(school);
+    }
 }
 
 

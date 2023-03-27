@@ -18,4 +18,11 @@ public class School extends BaseEntity {
     @Column(name = "school_name")
     String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

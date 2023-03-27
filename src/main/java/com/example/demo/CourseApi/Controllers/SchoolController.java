@@ -120,4 +120,14 @@ public School getLatestUpdatedDate() {
         return"Recored updated successfully";
     }
 
+
+    @RequestMapping(value = "createSchool", method = RequestMethod.POST)                             //createSchool
+    public List<School> createSchool(@RequestParam String schoolName) {
+        List<School> schools = new ArrayList<>();
+        schools = schoolService.getAllSchools();
+        schoolService.createSchool(schoolName);
+
+        return schools;
+    }
+
 }
