@@ -85,24 +85,38 @@ public School getLatestUpdatedDate() {
     return school;
 }
 
-//    @RequestMapping(value = "deleteSchoolById", method = RequestMethod.POST)           //deleteSchoolById
-//    public void deleteSchoolById(@RequestParam Integer schoolId) {
-//        schoolService.deleteSchoolById(schoolId);
-//
-//    }
-//
-//    @RequestMapping(value = "deleteAll", method = RequestMethod.POST)                     //deleteAllSchool
-//    public void deleteAllSchools() {
-//        schoolService.deleteAllSchool();
-//    }
-//
-//    @RequestMapping(value = "deleteAllSchoolsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllSchoolsCreatedAfterDate
-//    public void deleteAllSchoolsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{
-//        schoolService.deleteAllSchoolsCreatedAfterDate(createdDate);
-//    }
-//    @RequestMapping(value = "deleteSchoolBySchoolName",method = RequestMethod.GET)             //deleteSchoolBySchoolName
-//    public void deleteSchoolBySchoolName(@RequestParam String schoolName) {
-//        schoolService.deleteSchoolBySchoolName(schoolName);
+    @RequestMapping(value = "deleteSchoolById", method = RequestMethod.POST)           //deleteSchoolById
+    public String deleteSchoolById(@RequestParam Integer schoolId) {
+        schoolService.deleteSchoolById(schoolId);
+        return"Recored updated successfully";
+
+    }
+
+    @RequestMapping(value = "deleteAll", method = RequestMethod.POST)                     //deleteAllSchool
+    public String deleteAllSchools() {
+        schoolService.deleteAllSchool();
+        return"Recored updated successfully";
+    }
+
+    @RequestMapping(value = "deleteAllSchoolsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllSchoolsCreatedAfterDate
+    public String deleteAllSchoolsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{
+        schoolService.deleteAllSchoolsCreatedAfterDate(createdDate);
+        return"Recored updated successfully";
+    }
+    @RequestMapping(value = "deleteSchoolBySchoolName",method = RequestMethod.GET)             //deleteSchoolBySchoolName
+    public String deleteSchoolBySchoolName(@RequestParam String schoolName) {
+        schoolService.deleteSchoolBySchoolName(schoolName);
+        return"Recored updated successfully";
+    }
+    @RequestMapping(value = "deleteSchoolsByCreatedDate", method = RequestMethod.POST)                //deleteSchoolsByCreatedDate
+    public String deleteSchoolsByCreatedDate(@RequestParam String createdDate) {
+        schoolService.deleteSchoolsByCreatedDate(createdDate);
+        return"Recored updated successfully";
+    }
+
+//    @RequestMapping(value = "deleteSchoolsByUpdatedDate", method = RequestMethod.POST)
+//    public void deleteSchoolsByUpdatedDate(@RequestParam String updatedDate) {
+//        schoolService.deleteSchoolsByUpdatedDate(updatedDate);
 //    }
 
 }

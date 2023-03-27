@@ -48,13 +48,13 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     @Query(value = " select s from School s where s.updatedDate = (select Max(s.updatedDate) from School s)")      //getLatestUpdatedDate
     School getLatestUpdatedDate();
 
-//    @Modifying
-//    @Transactional
-//    @Query(value = "Update School s Set s.isActive =false")                  //deleteAllSchool
-//    void deleteAllSchoolsByIsActiveFalse();
-//
-//    @Query(value = "SELECT s from School s where s.createdDate> :createdDate")                      //deleteAllSchoolsCreatedAfterDate
-//    List<School> deleteAllSchoolsCreatedAfterDate(@Param("createdDate") Date createdDate);
+    @Modifying
+    @Transactional
+    @Query(value = "Update School s Set s.isActive =false")                  //deleteAllSchool
+    void deleteAllSchoolsByIsActiveFalse();
+
+    @Query(value = "SELECT s from School s where s.createdDate> :createdDate")                      //deleteAllSchoolsCreatedAfterDate
+    List<School> deleteAllSchoolsCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 
 

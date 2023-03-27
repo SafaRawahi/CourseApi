@@ -29,7 +29,18 @@ public class MarkController {
     public Mark getMarkById(@RequestParam Integer markId) {
         Mark mark = markService.getMarkById(markId);
         return mark;
-
-
     }
+
+//    @RequestMapping(value = "getAllActiveMarks", method = RequestMethod.GET)          //getAllActiveMarks
+//    public List<Mark> getAllActiveMarks() {
+//        List<Mark> markList = new ArrayList<>();
+//        markList = markService.getAllActiveMarks();
+//        return markList;
+//    }
+
+
+
+
+
+
 }

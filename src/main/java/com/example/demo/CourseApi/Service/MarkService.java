@@ -25,7 +25,10 @@ public class MarkService {
         Mark mark = markRepository.getMarkById(id);
         return mark;
     }
-
+//    public List<Mark> getAllActiveMarks() {                                  //getAllActiveMarks
+//        List<Mark> allActiveMarks = markRepository.getAllActiveMarks();
+//        return allActiveMarks;
+//    }
 
 
 }
