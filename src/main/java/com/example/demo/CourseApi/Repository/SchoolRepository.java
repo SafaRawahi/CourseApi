@@ -57,7 +57,6 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
     List<School> deleteAllSchoolsCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 
-
 }
 
 

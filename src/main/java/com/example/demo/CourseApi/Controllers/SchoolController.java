@@ -114,9 +114,10 @@ public School getLatestUpdatedDate() {
         return"Recored updated successfully";
     }
 
-//    @RequestMapping(value = "deleteSchoolsByUpdatedDate", method = RequestMethod.POST)
-//    public void deleteSchoolsByUpdatedDate(@RequestParam String updatedDate) {
-//        schoolService.deleteSchoolsByUpdatedDate(updatedDate);
-//    }
+    @RequestMapping(value = "deleteSchoolsByUpdatedDate", method = RequestMethod.POST)               //deleteSchoolsByUpdatedDate
+    public String deleteSchoolsByUpdatedDate(@RequestParam String updatedDate) {
+        schoolService.deleteSchoolsByUpdatedDate(updatedDate);
+        return"Recored updated successfully";
+    }
 
 }

@@ -120,11 +120,11 @@ public class SchoolService {
         schoolRepository.saveAll(schoolList);
     }
 
-//    public void deleteSchoolsByUpdatedDate(String updatedDate) {
-//        List<School> schools = schoolRepository.getSchoolsByUpdatedDate(updatedDate);
-//        schools.stream().forEach(x -> x.setIsActive(false));
-//        schoolRepository.saveAll(schools);
-//    }
+    public void deleteSchoolsByUpdatedDate(String updatedDate) {                        //deleteSchoolsByUpdatedDate
+        List<School> schools = schoolRepository.getSchoolsByUpdatedDate(updatedDate);
+        schools.stream().forEach(x -> x.setIsActive(false));
+        schoolRepository.saveAll(schools);
+    }
 }
 
 
