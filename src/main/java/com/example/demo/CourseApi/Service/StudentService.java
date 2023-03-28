@@ -109,11 +109,11 @@ public class StudentService {
         studentRepository.saveAll(studentList);
     }
 
-//    public void deleteStudentsByUpdatedDate(String updatedDate) {                        //deleteStudentsByUpdatedDate
-//        List<Student> studentList = studentRepository.getStudentByUpdatedDate(updatedDate);
-//        studentList.stream().forEach(x -> x.setIsActive(false));
-//        studentRepository.saveAll(studentList);
-//    }
+    public void deleteStudentsByUpdatedDate(String updatedDate) {                        //deleteStudentsByUpdatedDate
+        List<Student> studentList = studentRepository.getStudentByUpdatedDate(updatedDate);
+        studentList.stream().forEach(x -> x.setIsActive(false));
+        studentRepository.saveAll(studentList);
+    }
 //    public void createStudent(String student_Name) {                          //createStudent
 //        Student student=  new Student();
 //        student.setName(student_Name);
