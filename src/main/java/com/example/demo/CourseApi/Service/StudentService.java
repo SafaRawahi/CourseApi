@@ -114,13 +114,13 @@ public class StudentService {
         studentList.stream().forEach(x -> x.setIsActive(false));
         studentRepository.saveAll(studentList);
     }
-//    public void createStudent(String student_Name) {                          //createStudent
-//        Student student=  new Student();
-//        student.setName(student_Name);
-//        student.setCreatedDate(new Date());
-//        student.setIsActive(Boolean.TRUE);
-//        studentRepository.save(student);
-//    }
+    public void createStudent(String student_Name) {                          //createStudent
+        Student student=  new Student();
+        student.setName(student_Name);
+        student.setCreatedDate(new Date());
+        student.setIsActive(Boolean.TRUE);
+        studentRepository.save(student);
+    }
 
 
 }

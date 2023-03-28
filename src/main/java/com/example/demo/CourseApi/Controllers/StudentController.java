@@ -126,14 +126,13 @@ public class StudentController {
         return"Recored updated successfully";
     }
 
-//    @RequestMapping(value = "createStudent", method = RequestMethod.POST)                             //createStudent
-//    public List<Student> createStudent(@RequestParam String student_Name) {
-//        List<Student> students = new ArrayList<>();
-//        students = studentService.getAllStudents();
-//        studentService.createStudent(student_Name);
-//
-//        return students;
-//    }
+    @RequestMapping(value = "createStudent", method = RequestMethod.POST)                             //createStudent
+    public List<Student> createStudent(@RequestParam String student_Name) {
+        List<Student> students = new ArrayList<>();
+        students = studentService.getAllStudents();
+        studentService.createStudent(student_Name);
+        return students;
+    }
 
 
 }
