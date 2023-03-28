@@ -75,9 +75,18 @@ SchoolController schoolController;
         List<School> activeSchools = schoolController.getAllActiveSchools();
         assertNotNull(activeSchools);
         assertTrue(activeSchools.size() > 0);
-
     }
+    @Test
+    void getAllActiveSchools_Invalid() {
+        schoolController.getAllActiveSchools();
 
+        // Call the function
+        List<School> activeSchools = schoolController.getAllActiveSchools();
+
+        // Verify that the function returns an empty list or null
+        assertNotNull(activeSchools);
+        assertTrue(activeSchools.isEmpty());
+    }
     @Test
     void getAllInActive() {
     }
