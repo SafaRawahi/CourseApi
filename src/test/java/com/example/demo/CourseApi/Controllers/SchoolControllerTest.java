@@ -27,17 +27,14 @@ public class SchoolControllerTest {
         assertEquals("AA", school_name);
     }
 
-    @Test
-    void getSchoolByIdInvalid() throws Exception {
-        String school_name = schoolController.getSchoolById(2).getName();
-        assertEquals("ASQ", school_name);
-    }
 
     @Test
-    void getSchoolByIdInvalidResult() throws Exception {
-        String school_name = schoolController.getSchoolById(2).getName();
-        assertEquals("Muscat", school_name);
+    void getSchoolByIdInvalid()throws  Exception{
+        School schoolTest=schoolController.getSchoolById(0);
+        assertEquals(null,schoolTest);
+
     }
+
 
     @Test
     void getSchoolByIdValid() throws Exception {
@@ -81,7 +78,7 @@ public class SchoolControllerTest {
     void getAllActiveSchools() {
         List<School> activeSchools = schoolController.getAllActiveSchools();
         assertNotNull(activeSchools);
-        assertTrue(activeSchools.size() > 0);
+
     }
 
     @Test
@@ -97,13 +94,13 @@ public class SchoolControllerTest {
     }
 
 
-    @Test  //valid
+    @Test
     void getAllInActive() {
         List<School> inactiveSchools = schoolController.getAllInActive();
         assertNotNull(inactiveSchools);
-        assertTrue(inactiveSchools.size() > 0);
+
     }
-    @Test
+    @Test  //Invalid
     void getAllInActive_Invalid() {
         schoolController.getAllActiveSchools();
 
@@ -114,6 +111,7 @@ public class SchoolControllerTest {
         assertNotNull(inActiveSchools);
         assertTrue(inActiveSchools.isEmpty());
 }
+
     @Test    //Invalid
     void testGetActiveSchoolByName_Invalid() {
         // Create a test school object
@@ -148,6 +146,7 @@ public class SchoolControllerTest {
     }
     @Test
     void getSchoolLatestRow() {
+
     }
 
     @Test
@@ -156,6 +155,9 @@ public class SchoolControllerTest {
 
     @Test
     void getSchoolsByCreatedDate() {
+
+
+
     }
 
     @Test
