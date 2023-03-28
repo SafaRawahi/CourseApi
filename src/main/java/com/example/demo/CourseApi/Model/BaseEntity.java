@@ -28,4 +28,7 @@ public class BaseEntity {
 
     Boolean isActive;
 
+    public boolean isActive() {
+        return isActive;
+    }
 }

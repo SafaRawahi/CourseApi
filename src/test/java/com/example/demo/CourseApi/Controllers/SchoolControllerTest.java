@@ -5,17 +5,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 
 public class SchoolControllerTest {
-@Autowired
-SchoolController schoolController;
+    @Autowired
+    SchoolController schoolController;
 
     @Test
-    void getAllSchools(){
+    void getAllSchools() {
     }
 
     @Test
@@ -26,14 +29,16 @@ SchoolController schoolController;
 
     @Test
     void getSchoolByIdInvalid() throws Exception {
-    String school_name = schoolController.getSchoolById(2).getName();
-    assertEquals("ASQ", school_name);
-}
+        String school_name = schoolController.getSchoolById(2).getName();
+        assertEquals("ASQ", school_name);
+    }
+
     @Test
     void getSchoolByIdInvalidResult() throws Exception {
         String school_name = schoolController.getSchoolById(2).getName();
         assertEquals("Muscat", school_name);
     }
+
     @Test
     void getSchoolByIdValid() throws Exception {
         String school_name = schoolController.getSchoolById(3).getName();
@@ -43,31 +48,33 @@ SchoolController schoolController;
     @Test
     void getSchoolByNameInvalid1() throws Exception {
         School schoolTest;
-        schoolTest= schoolController.getSchoolByName("java");
-        int id=schoolTest.getId();
-        assertEquals(4,id);
+        schoolTest = schoolController.getSchoolByName("java");
+        int id = schoolTest.getId();
+        assertEquals(4, id);
     }
+
     @Test
     void getSchoolByNameInvalid2() throws Exception {
         School schoolTest;
-        schoolTest= schoolController.getSchoolByName("UTS");
-        int id=schoolTest.getId();
-        assertEquals(1,id);
+        schoolTest = schoolController.getSchoolByName("UTS");
+        int id = schoolTest.getId();
+        assertEquals(1, id);
     }
+
     @Test
     void getSchoolByNamevalid1() throws Exception {
         School schoolTest;
-        schoolTest= schoolController.getSchoolByName("AA");
-        int id=schoolTest.getId();
-        assertEquals(1,id);
+        schoolTest = schoolController.getSchoolByName("AA");
+        int id = schoolTest.getId();
+        assertEquals(1, id);
     }
 
     @Test
     void getSchoolByNamevalid2() throws Exception {
         School schoolTest;
-        schoolTest= schoolController.getSchoolByName("java");
-        int id=schoolTest.getId();
-        assertEquals(2,id);
+        schoolTest = schoolController.getSchoolByName("java");
+        int id = schoolTest.getId();
+        assertEquals(2, id);
     }
 
     @Test
@@ -76,6 +83,7 @@ SchoolController schoolController;
         assertNotNull(activeSchools);
         assertTrue(activeSchools.size() > 0);
     }
+
     @Test
     void getAllActiveSchools_Invalid() {
         schoolController.getAllActiveSchools();
@@ -87,12 +95,24 @@ SchoolController schoolController;
         assertNotNull(activeSchools);
         assertTrue(activeSchools.isEmpty());
     }
-    @Test
+
+    @Test  //valid
     void getAllInActive() {
         List<School> inactiveSchools = schoolController.getAllInActive();
         assertNotNull(inactiveSchools);
         assertTrue(inactiveSchools.size() > 0);
     }
+    @Test
+    void getAllInActive_Invalid() {
+        schoolController.getAllActiveSchools();
+
+        // Call the function
+        List<School> inActiveSchools = schoolController.getAllInActive();
+
+        // Verify that the function returns an empty list or null
+        assertNotNull(inActiveSchools);
+        assertTrue(inActiveSchools.isEmpty());
+}
 
     @Test
     void getSchoolLatestRow() {
