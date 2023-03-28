@@ -57,6 +57,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value = "Update Student s Set s.isActive =false")                  //deleteAllStudent
     void deleteAllStudentByIsActiveFalse();
 
-//   @Query(value = "SELECT s from Student s where s.createdDate> :createdDate")                      //deleteAllStudentsCreatedAfterDate
-//   List<Student> deleteAllStudentsCreatedAfterDate(@Param("createdDate") Date createdDate);
+   @Query(value = "SELECT s from Student s where s.createdDate> :createdDate")                      //deleteAllStudentsCreatedAfterDate
+   List<Student> deleteAllStudentsCreatedAfterDate(@Param("createdDate") Date createdDate);
 }

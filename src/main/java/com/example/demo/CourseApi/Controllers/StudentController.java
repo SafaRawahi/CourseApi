@@ -104,12 +104,12 @@ public class StudentController {
         studentService.deleteAllStudent();
         return"Recored updated successfully";
     }
-//
-//    @RequestMapping(value = "deleteAllStudentsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllStudentsCreatedAfterDate
-//    public String deleteAllStudentsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{
-//        studentService.deleteAllStudentsCreatedAfterDate(createdDate);
-//        return"Recored updated successfully";
-//    }
+
+    @RequestMapping(value = "deleteAllStudentsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllStudentsCreatedAfterDate
+    public String deleteAllStudentsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{
+        studentService.deleteAllStudentsCreatedAfterDate(createdDate);
+        return"Recored updated successfully";
+    }
 //    @RequestMapping(value = "deleteStudentByStudentName",method = RequestMethod.GET)             //deleteStudentByStudentName
 //    public String deleteStudentByStudentName(@RequestParam String student_Name) {
 //        studentService.deleteStudentByStudentName(student_Name);

@@ -91,13 +91,13 @@ public class StudentService {
         studentRepository.deleteAllStudentByIsActiveFalse();
     }
 
-//    public void deleteAllStudentsCreatedAfterDate(String createdDate)throws ParseException{          //deleteAllStudentsCreatedAfterDate
-//        DateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
-//        Date date = formatter.parse(createdDate);
-//        List<Student> studentList =studentRepository.deleteAllStudentsCreatedAfterDate(date);
-//        studentList.stream().forEach(x -> x.setActive(false));
-//        studentRepository.saveAll(studentList);
-//    }
+    public void deleteAllStudentsCreatedAfterDate(String createdDate)throws ParseException{          //deleteAllStudentsCreatedAfterDate
+        DateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
+        Date date = formatter.parse(createdDate);
+        List<Student> studentList =studentRepository.deleteAllStudentsCreatedAfterDate(date);
+        studentList.stream().forEach(x -> x.setActive(true));
+        studentRepository.saveAll(studentList);
+    }
 //    public void deleteStudentByStudentName(String student_Name) {                    //deleteStudentByStudentName
 //        Student student = studentRepository.getStudentByStudentName(student_Name);
 //        student.setActive(true);
