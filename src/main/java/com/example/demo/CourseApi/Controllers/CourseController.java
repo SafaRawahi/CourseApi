@@ -31,7 +31,12 @@ public class CourseController {
 
     }
 
+    @RequestMapping(value = "getAllCourseIsActive", method = RequestMethod.GET)              //getAllCourseIsActive
+    public List<Course> getAllCourseIsActive() {
+        List<Course> courseList = courseService.getAllCourseIsActive();
+        return courseList;
 
+    }
 
 
 

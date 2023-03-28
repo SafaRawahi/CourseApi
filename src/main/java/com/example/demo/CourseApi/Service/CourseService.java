@@ -22,4 +22,8 @@ public class CourseService {
         Course course = courseRepository.getCourseById(course_id);
         return course;
     }
+    public List<Course> getAllCourseIsActive() {                          //getAllCourseIsActive
+        return courseRepository.getAllCourseIsActive();
+
+    }
 }
