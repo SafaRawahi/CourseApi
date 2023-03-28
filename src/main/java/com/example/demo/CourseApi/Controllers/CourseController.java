@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -38,6 +39,11 @@ public class CourseController {
 
     }
 
-
+    @RequestMapping(value = "getAllInActiveCourse", method = RequestMethod.GET)     //getAllInActiveCourse
+    public List<Course> getAllInActiveCourse() {
+        List<Course> AllInActiveCourse = new ArrayList<>();
+        AllInActiveCourse = courseService.getAllInActiveCourse();
+        return AllInActiveCourse;
+    }
 
 }
