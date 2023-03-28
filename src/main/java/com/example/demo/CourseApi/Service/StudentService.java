@@ -98,11 +98,11 @@ public class StudentService {
         studentList.stream().forEach(x -> x.setActive(true));
         studentRepository.saveAll(studentList);
     }
-//    public void deleteStudentByStudentName(String student_Name) {                    //deleteStudentByStudentName
-//        Student student = studentRepository.getStudentByStudentName(student_Name);
-//        student.setActive(true);
-//        studentRepository.save(student);
-//    }
+    public void deleteStudentByStudentName(String student_Name) {                    //deleteStudentByStudentName
+        Student student = studentRepository.getStudentByStudentName(student_Name);
+        student.setActive(true);
+        studentRepository.save(student);
+    }
 //    public void deleteStudentsByCreatedDate(String createdDate) {                  //deleteStudentsByCreatedDate
 //        List<Student> studentList = studentRepository.getStudentByCreatedDate(createdDate);
 //        studentList.stream().forEach(x -> x.setIsActive(false));

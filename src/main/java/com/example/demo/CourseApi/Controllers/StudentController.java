@@ -110,11 +110,11 @@ public class StudentController {
         studentService.deleteAllStudentsCreatedAfterDate(createdDate);
         return"Recored updated successfully";
     }
-//    @RequestMapping(value = "deleteStudentByStudentName",method = RequestMethod.GET)             //deleteStudentByStudentName
-//    public String deleteStudentByStudentName(@RequestParam String student_Name) {
-//        studentService.deleteStudentByStudentName(student_Name);
-//        return"Recored updated successfully";
-//    }
+    @RequestMapping(value = "deleteStudentByStudentName",method = RequestMethod.POST)             //deleteStudentByStudentName
+    public String deleteStudentByStudentName(@RequestParam String student_Name) {
+        studentService.deleteStudentByStudentName(student_Name);
+        return"Recored updated successfully";
+    }
 //    @RequestMapping(value = "deleteStudentsByCreatedDate", method = RequestMethod.POST)                //deleteStudentsByCreatedDate
 //    public String deleteStudentsByCreatedDate(@RequestParam String createdDate) {
 //        studentService.deleteStudentsByCreatedDate(createdDate);
