@@ -96,6 +96,7 @@ public class SchoolControllerTest {
         assertTrue(activeSchools.isEmpty());
     }
 
+
     @Test  //valid
     void getAllInActive() {
         List<School> inactiveSchools = schoolController.getAllInActive();
@@ -113,7 +114,22 @@ public class SchoolControllerTest {
         assertNotNull(inActiveSchools);
         assertTrue(inActiveSchools.isEmpty());
 }
+    @Test    //Invalid
+    void testGetActiveSchoolByName_Invalid() {
+        // Create a test school object
+        School testSchool = new School();
+        testSchool.setName("java");
+        testSchool.setActive(true);
+        // Add the test school to the database
+//        schoolController.addSchool(testSchool);
 
+        // Call the getAllActiveSchools() method to get a list of all active schools
+        List<School> activeSchools = schoolController.getAllActiveSchools();
+
+        // Verify that the list contains the test school we just added
+        boolean containsTestSchool = activeSchools.stream().anyMatch(school -> school.getName().equals(testSchool.getName()));
+        assertTrue(containsTestSchool);
+    }
     @Test
     void getSchoolLatestRow() {
     }
