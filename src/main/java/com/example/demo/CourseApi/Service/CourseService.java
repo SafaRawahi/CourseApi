@@ -18,5 +18,8 @@ public class CourseService {
 
         return courseRepository.getAllCourse();
     }
-
+    public Course getCourseById(Integer course_id) {                        //getCourseById
+        Course course = courseRepository.getCourseById(course_id);
+        return course;
+    }
 }
