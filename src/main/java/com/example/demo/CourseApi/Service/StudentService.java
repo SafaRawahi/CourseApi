@@ -103,12 +103,12 @@ public class StudentService {
         student.setActive(true);
         studentRepository.save(student);
     }
-//    public void deleteStudentsByCreatedDate(String createdDate) {                  //deleteStudentsByCreatedDate
-//        List<Student> studentList = studentRepository.getStudentByCreatedDate(createdDate);
-//        studentList.stream().forEach(x -> x.setIsActive(false));
-//        studentRepository.saveAll(studentList);
-//    }
-//
+    public void deleteStudentsByCreatedDate(String createdDate) {                  //deleteStudentsByCreatedDate
+        List<Student> studentList = studentRepository.getStudentByCreatedDate(createdDate);
+        studentList.stream().forEach(x -> x.setIsActive(false));
+        studentRepository.saveAll(studentList);
+    }
+
 //    public void deleteStudentsByUpdatedDate(String updatedDate) {                        //deleteStudentsByUpdatedDate
 //        List<Student> studentList = studentRepository.getStudentByUpdatedDate(updatedDate);
 //        studentList.stream().forEach(x -> x.setIsActive(false));
