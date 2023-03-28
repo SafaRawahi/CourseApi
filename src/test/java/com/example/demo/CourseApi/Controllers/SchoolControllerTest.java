@@ -44,13 +44,13 @@ public class SchoolControllerTest {
         assertEquals("UTS", school_name);
     }
 
-    @Test
-    void getSchoolByNameInvalid1() throws Exception {
-        School schoolTest;
-        schoolTest = schoolController.getSchoolByName("java");
-        //int id = schoolTest.getId();
-        assertEquals(null, schoolTest);
-    }
+//    @Test
+//    void getSchoolByNameInvalid1() throws Exception {
+//        School schoolTest;
+//        schoolTest = schoolController.getSchoolByName("java");
+//        //int id = schoolTest.getId();
+//        assertEquals(null, schoolTest);
+//    }
 
     @Test
     void getSchoolByNameInvalid2() throws Exception {

@@ -93,6 +93,46 @@ public class StudentController {
         Student student = studentService.getLatestUpdatedDate();
         return student;
     }
+    @RequestMapping(value = "deleteStudentById", method = RequestMethod.POST)           //deleteStudentById
+    public String deleteStudentById(@RequestParam Integer id) {
+        studentService.deleteStudentById(id);
+        return"Recored updated successfully";
+
+    }
+//    @RequestMapping(value = "deleteAll", method = RequestMethod.POST)                     //deleteAllStudent
+//    public String deleteAllStudent() {
+//        studentService.deleteAllStudent();
+//        return"Recored updated successfully";
+//    }
+//
+//    @RequestMapping(value = "deleteAllStudentsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllStudentsCreatedAfterDate
+//    public String deleteAllStudentsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{
+//        studentService.deleteAllStudentsCreatedAfterDate(createdDate);
+//        return"Recored updated successfully";
+//    }
+//    @RequestMapping(value = "deleteStudentByStudentName",method = RequestMethod.GET)             //deleteStudentByStudentName
+//    public String deleteStudentByStudentName(@RequestParam String student_Name) {
+//        studentService.deleteStudentByStudentName(student_Name);
+//        return"Recored updated successfully";
+//    }
+//    @RequestMapping(value = "deleteStudentsByCreatedDate", method = RequestMethod.POST)                //deleteStudentsByCreatedDate
+//    public String deleteStudentsByCreatedDate(@RequestParam String createdDate) {
+//        studentService.deleteStudentsByCreatedDate(createdDate);
+//        return"Recored updated successfully";
+//    }
+//    @RequestMapping(value = "deleteStudentsByUpdatedDate", method = RequestMethod.POST)               //deleteStudentsByUpdatedDate
+//    public String deleteStudentsByUpdatedDate(@RequestParam String updatedDate) {
+//        studentService.deleteStudentsByUpdatedDate(updatedDate);
+//        return"Recored updated successfully";
+//    }
+//    @RequestMapping(value = "createStudent", method = RequestMethod.POST)                             //createStudent
+//    public List<Student> createStudent(@RequestParam String student_Name) {
+//        List<Student> students = new ArrayList<>();
+//        students = studentService.getAllStudents();
+//        studentService.createStudent(student_Name);
+//
+//        return students;
+//    }
 
 
 }

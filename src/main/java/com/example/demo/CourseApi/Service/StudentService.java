@@ -82,6 +82,45 @@ public class StudentService {
         return student;
 
     }
+    public void deleteStudentById(Integer Id) {                   // deleteStudentById
+        Student student= studentRepository.getStudentById(Id);
+        student.setIsActive(false);
+        studentRepository.save(student);
+    }
+//    public void deleteAllStudent() {                                //deleteAllStudent
+//        studentRepository.deleteAllStudentByIsActiveFalse();
+//    }
+//
+//    public void deleteAllStudentsCreatedAfterDate(String createdDate)throws ParseException{          //deleteAllStudentsCreatedAfterDate
+//        DateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
+//        Date date = formatter.parse(createdDate);
+//        List<Student> studentList =studentRepository.deleteAllStudentsCreatedAfterDate(date);
+//        studentList.stream().forEach(x -> x.setActive(false));
+//        studentRepository.saveAll(studentList);
+//    }
+//    public void deleteStudentByStudentName(String student_Name) {                    //deleteStudentByStudentName
+//        Student student = studentRepository.getStudentByStudentName(student_Name);
+//        student.setActive(true);
+//        studentRepository.save(student);
+//    }
+//    public void deleteStudentsByCreatedDate(String createdDate) {                  //deleteStudentsByCreatedDate
+//        List<Student> studentList = studentRepository.getStudentByCreatedDate(createdDate);
+//        studentList.stream().forEach(x -> x.setIsActive(false));
+//        studentRepository.saveAll(studentList);
+//    }
+//
+//    public void deleteStudentsByUpdatedDate(String updatedDate) {                        //deleteStudentsByUpdatedDate
+//        List<Student> studentList = studentRepository.getStudentByUpdatedDate(updatedDate);
+//        studentList.stream().forEach(x -> x.setIsActive(false));
+//        studentRepository.saveAll(studentList);
+//    }
+//    public void createStudent(String student_Name) {                          //createStudent
+//        Student student=  new Student();
+//        student.setName(student_Name);
+//        student.setCreatedDate(new Date());
+//        student.setIsActive(Boolean.TRUE);
+//        studentRepository.save(student);
+//    }
 
 
 }

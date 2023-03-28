@@ -3,9 +3,11 @@ package com.example.demo.CourseApi.Repository;
 import com.example.demo.CourseApi.Model.School;
 import com.example.demo.CourseApi.Model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -50,4 +52,10 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value = " select s from Student s where s.updatedDate = (select Max(s.updatedDate) from Student s)")      //getLatestUpdatedDate
     Student getLatestUpdatedDate();
 
+//    @Modifying
+//    @Transactional
+//    @Query(value = "Update Student s Set s.isActive =false")                  //deleteAllStudent
+//    void deleteAllStudentByIsActiveFalse();
+//   @Query(value = "SELECT s from Student s where s.createdDate> :createdDate")                      //deleteAllStudentsCreatedAfterDate
+//   List<Student> deleteAllStudentsCreatedAfterDate(@Param("createdDate") Date createdDate);
 }
