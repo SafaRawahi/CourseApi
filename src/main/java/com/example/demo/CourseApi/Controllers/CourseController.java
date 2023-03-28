@@ -46,4 +46,11 @@ public class CourseController {
         return AllInActiveCourse;
     }
 
+    @RequestMapping(value = "getLatestRowInCourse", method = RequestMethod.GET)        //getLatestRowInCourse
+    public List<Course> getLatestRowInCourse() {
+        List<Course> courseList = courseService.getLatestRowInCourse();
+
+        return courseList;
+    }
+
 }
