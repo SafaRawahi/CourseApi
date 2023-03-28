@@ -99,11 +99,11 @@ public class StudentController {
         return"Recored updated successfully";
 
     }
-//    @RequestMapping(value = "deleteAll", method = RequestMethod.POST)                     //deleteAllStudent
-//    public String deleteAllStudent() {
-//        studentService.deleteAllStudent();
-//        return"Recored updated successfully";
-//    }
+    @RequestMapping(value = "deleteAll", method = RequestMethod.POST)                     //deleteAllStudent
+    public String deleteAllStudent() {
+        studentService.deleteAllStudent();
+        return"Recored updated successfully";
+    }
 //
 //    @RequestMapping(value = "deleteAllStudentsCreatedAfterDate", method = RequestMethod.POST)                          //deleteAllStudentsCreatedAfterDate
 //    public String deleteAllStudentsCreatedAfterDate(@RequestParam String createdDate)throws ParseException{

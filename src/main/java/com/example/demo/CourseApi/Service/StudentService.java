@@ -87,10 +87,10 @@ public class StudentService {
         student.setIsActive(false);
         studentRepository.save(student);
     }
-//    public void deleteAllStudent() {                                //deleteAllStudent
-//        studentRepository.deleteAllStudentByIsActiveFalse();
-//    }
-//
+    public void deleteAllStudent() {                                //deleteAllStudent
+        studentRepository.deleteAllStudentByIsActiveFalse();
+    }
+
 //    public void deleteAllStudentsCreatedAfterDate(String createdDate)throws ParseException{          //deleteAllStudentsCreatedAfterDate
 //        DateFormat formatter=new SimpleDateFormat("yyyy-MM-dd");
 //        Date date = formatter.parse(createdDate);
