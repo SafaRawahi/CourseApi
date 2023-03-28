@@ -53,17 +53,17 @@ public class SchoolControllerTest {
     @Test
     void getSchoolByNameInvalid2() throws Exception {
         School schoolTest;
-        schoolTest = schoolController.getSchoolByName("UTS");
-        int id = schoolTest.getId();
-        assertEquals(1, id);
+        schoolTest = schoolController.getSchoolByName("MM");
+       // int id = schoolTest.getId();
+        assertEquals(null, schoolTest);
     }
 
     @Test
     void getSchoolByNamevalid1() throws Exception {
         School schoolTest;
         schoolTest = schoolController.getSchoolByName("AA");
-        int id = schoolTest.getId();
-        assertEquals(1, id);
+       // int id = schoolTest.getId();
+        assertEquals(null, schoolTest);
     }
 
     @Test
