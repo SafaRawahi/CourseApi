@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 
@@ -70,6 +72,10 @@ SchoolController schoolController;
 
     @Test
     void getAllActiveSchools() {
+        List<School> activeSchools = schoolController.getAllActiveSchools();
+        assertNotNull(activeSchools);
+        assertTrue(activeSchools.size() > 0);
+
     }
 
     @Test
