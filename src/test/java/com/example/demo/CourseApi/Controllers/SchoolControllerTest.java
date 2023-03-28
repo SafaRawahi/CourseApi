@@ -89,6 +89,9 @@ SchoolController schoolController;
     }
     @Test
     void getAllInActive() {
+        List<School> inactiveSchools = schoolController.getAllInActive();
+        assertNotNull(inactiveSchools);
+        assertTrue(inactiveSchools.size() > 0);
     }
 
     @Test
