@@ -72,5 +72,9 @@ public class CourseService {
         List<Course> courses = courseRepository.getCourseByStudentId(studentId);
         return courses;
     }
+    public List<Course> getAllActiveCoursesForAStudent(Integer studentId) {               //getAllActiveCoursesForAStudent
+        List<Course> courses = courseRepository.getCourseByStudentId(studentId);
+        return courses;
+    }
 
 }
