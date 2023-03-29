@@ -37,6 +37,8 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
     @Query(value = "select * from Course where created_date like CONCAT (?1, '%') ", nativeQuery = true)      //getCourseByCreatedDate
     List<Course> getCourseByCreatedDate(String createdDate);
 
+    @Query(value = "select * from Course where updated_date like CONCAT (?1, '%') ", nativeQuery = true)    //getCourseByUpdatedDate
+    List<Course>  getCourseByUpdatedDate(String updatedDate);
 
 
 }
