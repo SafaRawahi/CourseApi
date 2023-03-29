@@ -6,6 +6,10 @@ import com.example.demo.CourseApi.Repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,9 +35,26 @@ public class CourseService {
         return AllInActiveCourse;
     }
 
-    public List<Course> getLatestRowInCourse() {                            //getLatestRowInCourse
-        return courseRepository.getLatestRowInCourse();
+//    public List<Course> getLatestRowInCourse() {                            //getLatestRowInCourse
+//        return courseRepository.getLatestRowInCourse();
+//
+//    }
+
+    public Course getLatestUpdatedDate() {                            //getLatestUpdatedDateCourse
+        Course course = courseRepository.getLatestUpdatedDate();
+        return course;
 
     }
+
+
+//    public List<Course> getCourseCreatedAfterDate(String StringCreatedDate) throws ParseException {                //getCourseCreatedAfterDate
+//        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+//        Date date = format.parse(StringCreatedDate);
+//        List<Course> courseList = courseRepository.getCourseCreatedAfterDate(date);
+//        return courseList;
+//    }
+
+
+
 
 }

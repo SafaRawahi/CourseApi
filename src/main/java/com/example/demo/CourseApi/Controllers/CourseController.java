@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,11 +47,22 @@ public class CourseController {
         return AllInActiveCourse;
     }
 
-    @RequestMapping(value = "getLatestRowInCourse", method = RequestMethod.GET)        //getLatestRowInCourse
-    public List<Course> getLatestRowInCourse() {
-        List<Course> courseList = courseService.getLatestRowInCourse();
+//    @RequestMapping(value = "getLatestRowInCourse", method = RequestMethod.GET)        //getLatestRowInCourse
+//    public List<Course> getLatestRowInCourse() {
+//        List<Course> courseList = courseService.getLatestRowInCourse();
+//        return courseList;
+//    }
 
-        return courseList;
+    @RequestMapping(value = "getLatestUpdatedDate", method = RequestMethod.GET)              // getLatestUpdatedDateCourse
+    public Course getLatestUpdatedDate() {
+        Course course = courseService.getLatestUpdatedDate();
+        return course;
     }
 
+//    @RequestMapping(value = "getCourseCreatedAfterDate" , method = RequestMethod.GET)
+//    public List<Course> getCourseCreatedAfterDate(@RequestParam String createdDate) throws ParseException {         //getCourseCreatedAfterDate
+//        List<Course> courseList =new ArrayList<>();
+//        courseList=courseService.getCourseCreatedAfterDate(createdDate);
+//        return courseList;
+//    }
 }
