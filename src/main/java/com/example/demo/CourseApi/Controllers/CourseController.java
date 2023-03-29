@@ -65,4 +65,11 @@ public class CourseController {
         courseList=courseService.getCourseCreatedAfterDate(createdDate);
         return courseList;
     }
+
+    @RequestMapping(value = "getByCourseName",method =RequestMethod.GET )                //getCourseByCourseName
+    public Course getCourseByCourseName(@RequestParam String name) {
+        Course course= courseService.getCourseByCourseName(name);
+        return course;
+    }
+
 }

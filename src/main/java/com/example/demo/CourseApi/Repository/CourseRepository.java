@@ -31,5 +31,6 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
 
     @Query(value="SELECT  c from Course c where c.createdDate>= :createdDate")                //getCourseCreatedAfterDate
     List<Course>  getCourseCreatedAfterDate(@Param("createdDate") Date createdDate);
-
+    @Query(value="SELECT  c from Course c where c.name = :name")               //getCourseByCourseName
+    Course getCourseByCourseName(@Param("name") String name);
 }

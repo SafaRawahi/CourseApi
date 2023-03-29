@@ -54,7 +54,10 @@ public class CourseService {
         return courseList;
     }
 
-
+    public Course getCourseByCourseName(String name){                        //getCourseByCourseName
+        Course course=courseRepository.getCourseByCourseName(name);
+        return course;
+    }
 
 
 }
