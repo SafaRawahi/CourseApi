@@ -72,4 +72,10 @@ public class CourseController {
         return course;
     }
 
+    @RequestMapping(value = "getCourseByCreatedDate", method = RequestMethod.GET)                      //getCourseByCreatedDate
+    public List<Course> getCourseByCreatedDate(String createdDate) throws ParseException {
+        List<Course> courses = courseService.getCourseByCreatedDate(createdDate);
+        return courses;
+    }
+
 }

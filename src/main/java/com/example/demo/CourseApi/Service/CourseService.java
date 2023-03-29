@@ -58,6 +58,9 @@ public class CourseService {
         Course course=courseRepository.getCourseByCourseName(name);
         return course;
     }
-
+    public List<Course> getCourseByCreatedDate(String createdDate) {                     //getCourseByCreatedDate
+        List<Course> courses = courseRepository.getCourseByCreatedDate(createdDate);
+        return courses;
+    }
 
 }

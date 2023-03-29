@@ -33,4 +33,10 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
     List<Course>  getCourseCreatedAfterDate(@Param("createdDate") Date createdDate);
     @Query(value="SELECT  c from Course c where c.name = :name")               //getCourseByCourseName
     Course getCourseByCourseName(@Param("name") String name);
+
+    @Query(value = "select * from Course where created_date like CONCAT (?1, '%') ", nativeQuery = true)      //getCourseByCreatedDate
+    List<Course> getCourseByCreatedDate(String createdDate);
+
+
+
 }
