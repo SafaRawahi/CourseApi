@@ -2,6 +2,7 @@ package com.example.demo.CourseApi.Controllers;
 
 import com.example.demo.CourseApi.Model.School;
 import com.example.demo.CourseApi.Service.SchoolService;
+import com.example.demo.CourseApi.Slack.SlackClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +19,14 @@ public class SchoolController {
     SchoolService schoolService;
 
     //localhost:8080/school/getAll
+    @Autowired
+    SlackClient slackClient;
 
     @RequestMapping(value = "getAll", method = RequestMethod.GET)       //getAll
     public List<School> getAllSchools() {
         List<School> schools = new ArrayList<>();
         schools = schoolService.getAllSchools();
+//        slackClient.sendMessage(schoolService.formatSchoolListForSlack(schools).toString());
         return schools;
     }
 
