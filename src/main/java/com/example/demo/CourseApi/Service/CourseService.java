@@ -3,6 +3,7 @@ package com.example.demo.CourseApi.Service;
 import com.example.demo.CourseApi.Model.Course;
 import com.example.demo.CourseApi.Model.Student;
 import com.example.demo.CourseApi.Repository.CourseRepository;
+import com.example.demo.CourseApi.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,8 @@ public class CourseService {
 
     @Autowired
     CourseRepository courseRepository;
-
+ @Autowired
+    StudentRepository studentRepository;
     public List<Course> getAllCourse(){                 //getAllCourse
 
         return courseRepository.getAllCourse();
@@ -66,4 +68,9 @@ public class CourseService {
         List<Course> courses = courseRepository.getCourseByUpdatedDate(updatedDate);
         return courses;
     }
+    public List<Course> getCourseByStudentId(Integer studentId) {                   //getCourseByStudentId
+        List<Course> courses = courseRepository.getCourseByStudentId(studentId);
+        return courses;
+    }
+
 }

@@ -83,5 +83,10 @@ public class CourseController {
         List<Course> courses = courseService.getCourseByUpdatedDate(updatedDate);
         return courses;
     }
+    @RequestMapping(value = "getCourseByStudentId", method = RequestMethod.GET)                  //getCourseByStudentId
+    public List<Course> getCourseByStudentId(@RequestParam Integer studentId) {
+        List<Course> courses = courseService.getCourseByStudentId(studentId);
+        return courses;
+    }
 
 }
