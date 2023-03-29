@@ -59,10 +59,10 @@ public class CourseController {
         return course;
     }
 
-//    @RequestMapping(value = "getCourseCreatedAfterDate" , method = RequestMethod.GET)
-//    public List<Course> getCourseCreatedAfterDate(@RequestParam String createdDate) throws ParseException {         //getCourseCreatedAfterDate
-//        List<Course> courseList =new ArrayList<>();
-//        courseList=courseService.getCourseCreatedAfterDate(createdDate);
-//        return courseList;
-//    }
+    @RequestMapping(value = "getCourseCreatedAfterDate" , method = RequestMethod.GET)
+    public List<Course> getCourseCreatedAfterDate(@RequestParam String createdDate) throws ParseException {         //getCourseCreatedAfterDate
+        List<Course> courseList =new ArrayList<>();
+        courseList=courseService.getCourseCreatedAfterDate(createdDate);
+        return courseList;
+    }
 }

@@ -47,12 +47,12 @@ public class CourseService {
     }
 
 
-//    public List<Course> getCourseCreatedAfterDate(String StringCreatedDate) throws ParseException {                //getCourseCreatedAfterDate
-//        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
-//        Date date = format.parse(StringCreatedDate);
-//        List<Course> courseList = courseRepository.getCourseCreatedAfterDate(date);
-//        return courseList;
-//    }
+    public List<Course> getCourseCreatedAfterDate(String StringCreatedDate) throws ParseException {                //getCourseCreatedAfterDate
+        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
+        Date date = format.parse(StringCreatedDate);
+        List<Course> courseList = courseRepository.getCourseCreatedAfterDate(date);
+        return courseList;
+    }
 
 
 

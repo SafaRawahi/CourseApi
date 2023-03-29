@@ -29,7 +29,7 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
     @Query(value = " SELECT  c from Course c where c.updatedDate = (select Max(c.updatedDate) from Course c)")      //getLatestUpdatedDateCourse
     Course getLatestUpdatedDate();
 
-//    @Query(value="SELECT  c from Course c where c.createdDate>= :createdDate")                //getCourseCreatedAfterDate
-//    List<Course>  getCourseCreatedAfterDate(@Param("createdDate") Date createdDate);
+    @Query(value="SELECT  c from Course c where c.createdDate>= :createdDate")                //getCourseCreatedAfterDate
+    List<Course>  getCourseCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 }
