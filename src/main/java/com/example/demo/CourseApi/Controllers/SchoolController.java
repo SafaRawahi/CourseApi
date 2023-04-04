@@ -26,9 +26,10 @@ public class SchoolController {
     public List<School> getAllSchools() {
         List<School> schools = new ArrayList<>();
         schools = schoolService.getAllSchools();
-//        slackClient.sendMessage(schoolService.formatSchoolListForSlack(schools).toString());
+        slackClient.sendMessage("hello");
         return schools;
     }
+
 
 
     @RequestMapping(value = "getById", method = RequestMethod.GET)     //getById
