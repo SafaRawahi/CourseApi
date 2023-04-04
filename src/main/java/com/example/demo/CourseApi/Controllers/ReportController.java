@@ -23,4 +23,8 @@ public class ReportController {
     public void  generateStudentReport() throws JRException, FileNotFoundException {
          reportService.generateStudentReport();
     }
+    @RequestMapping(value = "markReport", method = RequestMethod.GET)
+    public void  generateMarksReport() throws JRException, FileNotFoundException {
+        reportService.generateMarksReport();
+    }
 }

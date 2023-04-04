@@ -1,8 +1,8 @@
 package com.example.demo.CourseApi.Service;
 
-import com.example.demo.CourseApi.Model.School;
-import com.example.demo.CourseApi.Model.Student;
-import com.example.demo.CourseApi.Model.StudentDTO;
+import com.example.demo.CourseApi.Model.*;
+import com.example.demo.CourseApi.Repository.CourseRepository;
+import com.example.demo.CourseApi.Repository.MarkRepository;
 import com.example.demo.CourseApi.Repository.SchoolRepository;
 import com.example.demo.CourseApi.Repository.StudentRepository;
 import net.sf.jasperreports.engine.*;
@@ -25,6 +25,8 @@ public class ReportService {
     private SchoolRepository schoolRepository;
     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    MarkRepository markRepository;
     public String generateReport() throws FileNotFoundException, JRException {
         List<School> schoolList = schoolRepository.getAllSchools();
 
@@ -59,4 +61,32 @@ public class ReportService {
         JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports+"\\student.pdf");
         return "Report generated : " + pathToReports+"\\student.pdf";
     }
+
+
+    public String generateMarksReport() throws FileNotFoundException, JRException {
+        List<Mark> marksList = markRepository.getAllMarks();
+        List<MarkDTO> markDTOList =new ArrayList<>();
+
+        for (Mark marklist : marksList)
+        {
+            String courseName= marklist.getCourse().getName();
+            Integer obtainedMarks= marklist.getObtainedMarks();
+            String grad = marklist.getGrade();
+            MarkDTO markDTO=new MarkDTO(courseName,obtainedMarks,grad);
+            markDTOList.add(markDTO);
+        }
+        File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\Mark_Report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(markDTOList);
+        Map<String, Object> paramters = new HashMap<>();
+        paramters.put("CreatedBy", "MyName");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports+"\\Mark.pdf");
+        return "Report generated : " + pathToReports+"\\Mark.pdf";
+    }
+
+
+
+
+
 }
