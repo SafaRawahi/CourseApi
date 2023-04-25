@@ -22,6 +22,15 @@ public interface MarkRepository extends CrudRepository<Mark, Integer> {
     Integer getSumOfMarkByStudentId(@Param("studentId")Integer studentId);
     @Query(value = "select avg(m.obtainedMarks) from Mark m where m.course.student.id = :studentId ")
     Integer getAvgOfMarksByStudentId(@Param("studentId") Integer studentId);
+
+
+    @Query(value = " select Distinct(m.grade) from Mark m ")
+    List<String> getDistinctGrades();
+
+    @Query(value = " select count(m) from Mark m where m.course.name = :name And m.grade = :grade ")
+    Integer getCountOfMarksByGradeAndCourseName(@Param("grade") String grade, @Param("name") String name);
+
+
 }
 
 //    @Query(value = "select m from Mark m where m.isActive =true")

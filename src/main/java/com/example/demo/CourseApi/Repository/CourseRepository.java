@@ -11,7 +11,8 @@ import java.util.List;
 
 public interface CourseRepository extends CrudRepository<Course, Integer> {
 
-
+    @Query(value = "Select c.name from Course c")
+    List<String> getAllCoursesNames();
     @Query(value = "SELECT c from Course c  ")           //getAllCourse
     List<Course> getAllCourse();
 

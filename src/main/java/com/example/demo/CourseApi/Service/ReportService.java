@@ -139,15 +139,15 @@ public class ReportService {
     }
 
     public String generateOverAllStudentPerformance() throws Exception {
-    List<Student> studentList= studentRepository.getAllStudent();
-    List<StudentOverAllPerformanceDTO> studentOverAllPerformanceDTOList=new ArrayList<>();
-    for (Student student : studentList){
-        String studentName = student.getName();
-        String studentRollNumber = student.getRollNumber();
-        Integer averageMark = markRepository.getAvgOfMarksByStudentId(student.getId());
-        StudentOverAllPerformanceDTO studentOverAllPerformanceDTO = new StudentOverAllPerformanceDTO(studentName,studentRollNumber,averageMark);
-        studentOverAllPerformanceDTOList.add(studentOverAllPerformanceDTO);
-    }
+        List<Student> studentList = studentRepository.getAllStudent();
+        List<StudentOverAllPerformanceDTO> studentOverAllPerformanceDTOList = new ArrayList<>();
+        for (Student student : studentList) {
+            String studentName = student.getName();
+            String studentRollNumber = student.getRollNumber();
+            Integer averageMark = markRepository.getAvgOfMarksByStudentId(student.getId());
+            StudentOverAllPerformanceDTO studentOverAllPerformanceDTO = new StudentOverAllPerformanceDTO(studentName, studentRollNumber, averageMark);
+            studentOverAllPerformanceDTOList.add(studentOverAllPerformanceDTO);
+        }
 
         File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\OverAllStudentPerformance.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
@@ -161,13 +161,13 @@ public class ReportService {
 
 
     public String generateTotalNumberOfStudentsInEachSchool() throws Exception {
-        List<School> schoolList= schoolRepository.getAllSchools();
-        List<StudentInEachSchoolDTO> studentInEachSchoolDTOList=new ArrayList<>();
+        List<School> schoolList = schoolRepository.getAllSchools();
+        List<StudentInEachSchoolDTO> studentInEachSchoolDTOList = new ArrayList<>();
         for (School school : schoolList) {
             Integer schoolId = school.getId();
             String schoolName = school.getName();
             Integer countOfStudent = studentRepository.getCountOfStudentsBySchoolId(schoolId);
-            StudentInEachSchoolDTO studentInEachSchoolDTO = new StudentInEachSchoolDTO(schoolName,countOfStudent);
+            StudentInEachSchoolDTO studentInEachSchoolDTO = new StudentInEachSchoolDTO(schoolName, countOfStudent);
             studentInEachSchoolDTOList.add(studentInEachSchoolDTO);
         }
         File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\TotalNumberOfStudentsInEachSchool.jrxml");
@@ -179,9 +179,26 @@ public class ReportService {
         JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\TotalNumberOfStudentsInEachSchool.pdf");
         return "Report generated : " + pathToReports + "\\TotalNumberOfStudentsInEachSchool.pdf";
 
+    }
 
-
+    public String generateTheDistributionOfGrades() throws Exception {
+        List<String> coursesNames  = courseRepository.getAllCoursesNames();
+        List<String> courseWithGradesDTOs = markRepository.getDistinctGrades();
+        List<CourseWithGradesDTO> courseWithGradesDTOList = new ArrayList<>();
+        for (String courseName : coursesNames ) {
+            for (String grade : courseWithGradesDTOs) {
+                Integer countOfMarksByGradeAndCourseName = markRepository.getCountOfMarksByGradeAndCourseName(grade, courseName);
+                courseWithGradesDTOList.add(new CourseWithGradesDTO(courseName, grade, countOfMarksByGradeAndCourseName));
+            }
         }
-
+        File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\TheDistributionOfGrades.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(courseWithGradesDTOList);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("CreatedBy", "MyName");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\TheDistributionOfGrades.pdf");
+        return "Report generated : " + pathToReports + "\\TheDistributionOfGrades.pdf";
+    }
 
 }

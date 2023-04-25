@@ -71,6 +71,16 @@ public class ReportController {
         }
     }
 
+    @RequestMapping(value = "ReportForDistributionOfGradesReport")
+    public String generateDistributionOfGradesReport() throws Exception {
+        try{
+        return reportService.generateTheDistributionOfGrades();
+    }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Exception("Error").getMessage();
+        }
+    }
 
 
 }
