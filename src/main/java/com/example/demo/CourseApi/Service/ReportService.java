@@ -138,10 +138,27 @@ public class ReportService {
         return "Report generated : " + pathToReports + "\\TopPerformingStudents.pdf";
     }
 
-//public String studentOverAllPerformance()throws JRException{
-//
-//
-//}
+    public String generateOverAllStudentPerformance() throws Exception {
+    List<Student> studentList= studentRepository.getAllStudent();
+    List<StudentOverAllPerformanceDTO> studentOverAllPerformanceDTOList=new ArrayList<>();
+    for (Student student : studentList){
+        String studentName = student.getName();
+        String studentRollNumber = student.getRollNumber();
+        Integer averageMark = markRepository.getAvgOfMarksByStudentId(student.getId());
+        StudentOverAllPerformanceDTO studentOverAllPerformanceDTO = new StudentOverAllPerformanceDTO(studentName,studentRollNumber,averageMark);
+        studentOverAllPerformanceDTOList.add(studentOverAllPerformanceDTO);
+    }
+
+        File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\OverAllStudentPerformance.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(studentOverAllPerformanceDTOList);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("CreatedBy", "MyName");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\OverAllStudentPerformance.pdf");
+        return "Report generated : " + pathToReports + "\\OverAllStudentPerformance.pdf";
+    }
+
 
 
 }

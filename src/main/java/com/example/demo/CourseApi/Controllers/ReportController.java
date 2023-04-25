@@ -50,5 +50,9 @@ public class ReportController {
 
         }
     }
+    @RequestMapping(value = "ReportForOverAllStudentPerformance")
+    public String generateOverAllStudentPerformance() throws Exception {
+        return reportService.generateOverAllStudentPerformance();
+    }
 
 }
