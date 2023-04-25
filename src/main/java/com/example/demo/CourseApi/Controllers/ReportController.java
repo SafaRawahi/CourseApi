@@ -59,4 +59,18 @@ public class ReportController {
             return new Exception("Error").getMessage();
         }
     }
+
+    @RequestMapping(value = "ReportForTotalNumberOfStudentsInEachSchool")
+    public String generateTotalNumberOfStudentsInEachSchool() throws Exception {
+        try{
+        return reportService.generateTotalNumberOfStudentsInEachSchool();
+    }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Exception("Error").getMessage();
+        }
+    }
+
+
+
 }

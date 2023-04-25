@@ -59,4 +59,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
    @Query(value = "SELECT s from Student s where s.createdDate> :createdDate")                      //deleteAllStudentsCreatedAfterDate
    List<Student> deleteAllStudentsCreatedAfterDate(@Param("createdDate") Date createdDate);
+
+    @Query(value = "select count(id) from student where school_id = ?1", nativeQuery = true)
+    Integer getCountOfStudentsBySchoolId(Integer schoolId);
 }

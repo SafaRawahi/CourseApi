@@ -160,5 +160,28 @@ public class ReportService {
     }
 
 
+    public String generateTotalNumberOfStudentsInEachSchool() throws Exception {
+        List<School> schoolList= schoolRepository.getAllSchools();
+        List<StudentInEachSchoolDTO> studentInEachSchoolDTOList=new ArrayList<>();
+        for (School school : schoolList) {
+            Integer schoolId = school.getId();
+            String schoolName = school.getName();
+            Integer countOfStudent = studentRepository.getCountOfStudentsBySchoolId(schoolId);
+            StudentInEachSchoolDTO studentInEachSchoolDTO = new StudentInEachSchoolDTO(schoolName,countOfStudent);
+            studentInEachSchoolDTOList.add(studentInEachSchoolDTO);
+        }
+        File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\TotalNumberOfStudentsInEachSchool.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(studentInEachSchoolDTOList);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("CreatedBy", "MyName");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\TotalNumberOfStudentsInEachSchool.pdf");
+        return "Report generated : " + pathToReports + "\\TotalNumberOfStudentsInEachSchool.pdf";
+
+
+
+        }
+
 
 }
