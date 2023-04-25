@@ -52,7 +52,11 @@ public class ReportController {
     }
     @RequestMapping(value = "ReportForOverAllStudentPerformance")
     public String generateOverAllStudentPerformance() throws Exception {
-        return reportService.generateOverAllStudentPerformance();
+        try {
+            return reportService.generateOverAllStudentPerformance();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Exception("Error").getMessage();
+        }
     }
-
 }
