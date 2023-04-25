@@ -84,69 +84,64 @@ public class ReportService {
         return "Report generated : " + pathToReports + "\\Mark.pdf";
     }
 
-    public String generateAverageMarkReport() throws JRException{
-        List<Course>courseList = courseRepository.getAllCourse();
+    public String generateAverageMarkReport() throws JRException {
+        List<Course> courseList = courseRepository.getAllCourse();
         List<CourseDTO> courseDTOList = new ArrayList<>();
-       for ( Course course : courseList) {
-           String courseName = course.getName();
-           Integer averageMark = markRepository.getAverageOfMarksByCourseName(courseName);
-           courseDTOList.add(new CourseDTO(courseName,averageMark));
+        for (Course course : courseList) {
+            String courseName = course.getName();
+            Integer averageMark = markRepository.getAverageOfMarksByCourseName(courseName);
+            courseDTOList.add(new CourseDTO(courseName, averageMark));
 
-       }
+        }
 
-File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\Course_Report.jrxml");
-       JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-    JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(courseDTOList);
-    Map<String, Object> parameters = new HashMap<>();
-    parameters.put("CreatedBy", "MyName");
-    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-    JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Course.pdf");
-    return "Report generated : " + pathToReports + "\\Course.pdf";
+        File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\Course_Report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(courseDTOList);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("CreatedBy", "MyName");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Course.pdf");
+        return "Report generated : " + pathToReports + "\\Course.pdf";
 
 
     }
 
-//public String generateTopPerformingStudentsReport()throws JRException{
-//     List<School>schoolList = schoolRepository.getAllSchools();
-//     Map<School,Student> schoolStudentMap = new HashMap<>();
-//    List<TopPerformingStudentsDTO> topPerformingStudentDTOList = new ArrayList<>();
-//
-//
-//     for (School school : schoolList){
-//         List<Student>studentList=studentRepository.getStudentsBySchoolId(school.getId());
-//         Integer highestMark=0;
-//         Student studentWithHighestMarks = new Student();
-//         for ( Student student: studentList) {
-//             Integer studentId = student.getId();
-//
-//             Integer studentTotalMark = markRepository.getSumofMarkByStudentId(studentId);
-//             if (studentTotalMark > highestMark) {
-//                 highestMark = studentTotalMark;
-//                 studentWithHighestMarks = student;
-//             }
-//         }
-//
-//             schoolStudentMap.put(school,studentWithHighestMarks);
-//         topPerformingStudentDTOList.add(new TopPerformingStudentsDTO(school.getName(),studentWithHighestMarks.getName()));
-//         }
-//         File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\TopPerformingStudents.jrxml");
-//         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-//         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(topPerformingStudentDTOList);
-//         Map<String, Object> parameters = new HashMap<>();
-//         parameters.put("CreatedBy", "MyName");
-//         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-//         JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\TopPerformingStudents.pdf");
-//         return "Report generated : " + pathToReports + "\\TopPerformingStudents.pdf";
-//     }
+    public String generateTopPerformingStudentsReport() throws JRException {
+        List<School> schoolList = schoolRepository.getAllSchools();
+        Map<School, Student> schoolStudentMap = new HashMap<>();
+        List<TopPerformingStudentsDTO> topPerformingStudentDTOList = new ArrayList<>();
+
+
+        for (School school : schoolList) {
+            List<Student> studentList = studentRepository.getStudentsBySchoolId(school.getId());
+            Integer highestMark = 0;
+            Student studentWithHighestMarks = new Student();
+            for (Student student : studentList) {
+                Integer studentId = student.getId();
+                Integer studentTotalMark = markRepository.getSumOfMarkByStudentId(studentId);
+                if (studentTotalMark != null && studentTotalMark > highestMark) {
+                    highestMark = studentTotalMark;
+                    studentWithHighestMarks = student;
+                }
+            }
+
+            schoolStudentMap.put(school, studentWithHighestMarks);
+            topPerformingStudentDTOList.add(new TopPerformingStudentsDTO(school.getName(), studentWithHighestMarks.getName()));
+        }
+        File file = new File("C:\\Users\\user017\\IdeaProjects\\demo.CourseApi\\src\\main\\resources\\TopPerformingStudents.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(topPerformingStudentDTOList);
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("CreatedBy", "MyName");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\TopPerformingStudents.pdf");
+        return "Report generated : " + pathToReports + "\\TopPerformingStudents.pdf";
+    }
 
 //public String studentOverAllPerformance()throws JRException{
 //
 //
 //}
-
-
-
-
 
 
 }

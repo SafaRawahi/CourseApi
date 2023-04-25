@@ -39,16 +39,16 @@ public class ReportController {
 
         }
     }
-//    @RequestMapping(method = RequestMethod.GET, value = "ReportForTopPerformingStudents")
-//    public String generateTopPerformingStudentsReport() throws JRException, FileNotFoundException  {
-//        try {
-//            return reportService.generateTopPerformingStudentsReport();
-//        }
-//        catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            return new Exception("Error").getMessage();
-//
-//        }
-//    }
+    @RequestMapping(method = RequestMethod.GET, value = "ReportForTopPerformingStudents")
+    public String generateTopPerformingStudentsReport() throws JRException, FileNotFoundException  {
+        try {
+            return reportService.generateTopPerformingStudentsReport();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Exception("Error").getMessage();
+
+        }
+    }
 
 }
